@@ -1,0 +1,43 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	<h:form>
+		<p:panelMenu>
+		    <p:submenu label="#{msg['pages.comuns.menuLateral.inicio']}" >
+			   <p:menuitem value="#{msg['pages.inicio.menu']}" url="convites.xhtml" />
+			   <p:menuitem value="#{msg['pages.inicio.placar']}" url="placar.xhtml" />
+			</p:submenu>
+		
+			<p:submenu label="#{msg['pages.comuns.menuLateral.cadastro']}">
+				<p:menuitem value="#{msg['pages.cadastroCampeonato.menu']}" url="cadastroCampeonato.xhtml" />
+				<p:menuitem value="#{msg['pages.cadastroCategoria.menu']}" url="cadastroCategoria.xhtml" />
+				<p:menuitem value="#{msg['pages.cadastroTime.menu']}" url="cadastroTime.xhtml" />
+				<p:menuitem value="#{msg['pages.cadastroLocal.menu']}" url="cadastroLocal.xhtml" />
+	       </p:submenu>
+					
+			<p:submenu label="#{msg['pages.comuns.menuLateral.inscrever']}">
+				<p:menuitem value="#{msg['pages.cadastroCategoriaCampeonato.menu']}" url="cadastroCategoriaCampeonato.xhtml" />
+				<p:menuitem value="#{msg['pages.cadastroTimeCategoria.menu']}" url="cadastroTimeCategoria.xhtml" />
+				
+	       </p:submenu>
+		
+		
+			<p:submenu label="#{msg['pages.comuns.menuLateral.pesquisar']}">
+					<p:menuitem value="#{msg['pages.pesquisarTime.menu']}" url="pesquisarTime.xhtml" />
+					
+					
+		       </p:submenu>	
+		
+		
+			<p:submenu label="#{msg['pages.comuns.menuLateral.options']}" >
+				   <p:menuitem value="#{msg['pages.linguagem.menu']}" url="linguagem.xhtml" />
+				   <p:menuitem value="#{msg['pages.logout.menu']}" url="login.xhtml" />
+			</p:submenu>
+		
+			
+		</p:panelMenu>
+	</h:form>
+</ui:composition>
+

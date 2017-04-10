@@ -1,0 +1,52 @@
+<ui:composition template="templateMenu.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui2="http://java.sun.com/jsf/facelets"
+>
+	
+	<ui:define name="title">
+		<h:outputText value="#{msg['pages.cadastroTime.title']}" />
+	</ui:define>
+	
+
+	<ui:define name="principal">
+	  
+	  <center>
+	  	<h1><p:outputLabel value="#{msg['pages.cadastroTime.menu']}"/></h1>
+	  </center>
+	  <center>
+	  <h:form id="formTime">	
+	  <p:panelGrid columns="2">
+      <p:outputLabel value="#{msg['pages.cadastroTime.nome']}" />
+      <p:inputText value="nome time"/>
+      
+      <p:outputLabel value="#{msg['pages.cadastroTime.cpfDiretor']}" />
+      <p:inputText />
+      
+      <p:outputLabel value="#{msg['pages.cadastroTime.nomeDiretor']}" />
+      <p:inputText />
+    
+     	
+
+	   </p:panelGrid>
+	   
+       </h:form>
+
+       <p:commandButton value="#{msg['pages.cadastroTime.btnSalvar']}" 
+	                 icon="ui-icon-check" oncomplete="PF('dlg').show()"
+					style="margin-top:10px;"
+	                 />
+	</center>
+	
+	   
+	</ui:define>
+</ui:composition>
+
+
+
+
+
+

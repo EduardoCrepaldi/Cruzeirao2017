@@ -1,0 +1,54 @@
+<ui:composition template="templateMenu.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui2="http://java.sun.com/jsf/facelets"
+>
+	
+	<ui:define name="title">
+		<h:outputText value="#{msg['pages.cadastroLocal.title']}" />
+	</ui:define>
+	
+
+	<ui:define name="principal">
+	  
+	  <center>
+	  	<h1><p:outputLabel value="#{msg['pages.cadastroLocal.menu']}"/></h1>
+	  </center>
+	  <center>
+	  <h:form id="formLocal">	
+	  <p:panelGrid columns="2">
+      <p:outputLabel value="#{msg['pages.cadastroLocal.nome']}" />
+      <p:inputText />
+      
+      
+      <p:outputLabel value="#{msg['pages.cadastroLocal.endLocalizacao']}" />
+      <p:inputText />
+      
+      <p:outputLabel value="#{msg['pages.cadastroLocal.inserir']}" />
+      <p:fileUpload value="#{fileUploadView.file}" mode="simple" skinSimple="true"/>
+     
+     
+
+      
+
+	   </p:panelGrid>
+       </h:form>
+
+       <p:commandButton value="#{msg['pages.cadastroLocal.btnSalvar']}" 
+	                 icon="ui-icon-check" oncomplete="PF('dlg').show()"
+					style="margin-top:10px;"
+	                 />
+	</center>
+	
+	   
+	</ui:define>
+</ui:composition>
+
+
+
+
+
+
