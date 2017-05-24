@@ -1,101 +1,96 @@
 package sistema.cruzeirao;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Categoria {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
-	private Organizador organizador;
+import enums.Sexo;
+
+@Entity
+public class Categoria implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int idCategoria;
+	
 	private String nome;
-	private int idadeMin;
-	private char Sexo;
-	private boolean habilitarJogadores;
-	private boolean habilitarTime;
+	private int nascidosApartirDe;
+	
+	@OneToMany(mappedBy="categoria")
+	private  ArrayList<Inscricao> inscricoes = new ArrayList<Inscricao>();
+	
+	@ManyToOne
 	private Campeonato campeonato;
-	private ArrayList<Time> times = new ArrayList<Time>();
-	private Chave chave;
 	
-	public Categoria(Chave chave){
-		setChave(chave);
-	}
+	@OneToMany(mappedBy="categoria")
+	private ArrayList<Fase> fases = new ArrayList<Fase>();
 	
-	
-	public void addTimes(Time time){
-		times.add(time);
-	}
-	
-	public void alteracaoTime(){
-		
-	}
-
-	public void alteracaoJogadores(){
-			
-	}
-	public ArrayList<Time> getTimes() {
-		return times;
-	}
-
-
-	public void setTimes(ArrayList<Time> times) {
-		this.times = times;
-	}
-
-
-	public Categoria(Campeonato campeonato){
-		setCampeonato(campeonato);
-	}
+	private int minJogadores;
+	private int maxJogadores;
+	private Sexo sexo;
 	
 	
-	public Campeonato getCampeonato() {
-		return campeonato;
-	}
-	public void setCampeonato(Campeonato campeonato) {
-		this.campeonato = campeonato;
-	}
-	public Organizador getOrganizador() {
-		return organizador;
-	}
-	public void setOrganizador(Organizador organizador) {
-		this.organizador = organizador;
-	}
 	public String getNome() {
 		return nome;
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public int getIdadeMin() {
-		return idadeMin;
+	public int getNascidosApartirDe() {
+		return nascidosApartirDe;
 	}
-	public void setIdadeMin(int idadeMin) {
-		this.idadeMin = idadeMin;
+	public void setNascidosApartirDe(int nascidosApartirDe) {
+		this.nascidosApartirDe = nascidosApartirDe;
 	}
-	public char getSexo() {
-		return Sexo;
+	public ArrayList<Inscricao> getInscricoes() {
+		return inscricoes;
 	}
-	public void setSexo(char sexo) {
-		Sexo = sexo;
+	public void setInscricoes(ArrayList<Inscricao> inscricoes) {
+		this.inscricoes = inscricoes;
 	}
-	public boolean isHabilitarJogadores() {
-		return habilitarJogadores;
+	public Campeonato getCampeonato() {
+		return campeonato;
 	}
-	public void setHabilitarJogadores(boolean habilitarJogadores) {
-		this.habilitarJogadores = habilitarJogadores;
+	public void setCampeonato(Campeonato campeonato) {
+		this.campeonato = campeonato;
 	}
-	public boolean isHabilitarTime() {
-		return habilitarTime;
+	public ArrayList<Fase> getFases() {
+		return fases;
 	}
-	public void setHabilitarTime(boolean habilitarTime) {
-		this.habilitarTime = habilitarTime;
+	public void setFases(ArrayList<Fase> fases) {
+		this.fases = fases;
 	}
-
-
-	public Chave getChave() {
-		return chave;
+	public int getMinJogadores() {
+		return minJogadores;
 	}
-
-
-	public void setChave(Chave chave) {
-		this.chave = chave;
+	public void setMinJogadores(int minJogadores) {
+		this.minJogadores = minJogadores;
+	}
+	public int getMaxJogadores() {
+		return maxJogadores;
+	}
+	public void setMaxJogadores(int maxJogadores) {
+		this.maxJogadores = maxJogadores;
+	}
+	public Sexo getSexo() {
+		return sexo;
+	}
+	public void setSexo(Sexo sexo) {
+		this.sexo = sexo;
+	}
+	public int getIdCategoria() {
+		return idCategoria;
+	}
+	public void setIdCategoria(int idCategoria) {
+		this.idCategoria = idCategoria;
 	}
 	
 	

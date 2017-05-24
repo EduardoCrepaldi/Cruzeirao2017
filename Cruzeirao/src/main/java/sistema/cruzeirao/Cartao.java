@@ -1,30 +1,48 @@
 package sistema.cruzeirao;
 
-public class Cartao {
+import java.io.Serializable;
 
-	private Jogador jogador;
-	private Partida partida;
-	private String tipoCartao;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
+import enums.CartaoTipo;
+
+@Entity
+public class Cartao implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
+	@ManyToOne
+	private Inscrito inscrito;
+	private CartaoTipo tipo;
+	
+	private int tempo;
+	public Inscrito getInscrito() {
+		return inscrito;
+	}
+	public void setInscrito(Inscrito inscrito) {
+		this.inscrito = inscrito;
+	}
+	public CartaoTipo getTipo() {
+		return tipo;
+	}
+	public void setTipo(CartaoTipo tipo) {
+		this.tipo = tipo;
+	}
+	public int getTempo() {
+		return tempo;
+	}
+	public void setTempo(int tempo) {
+		this.tempo = tempo;
+	}
 	
 	
-	public Jogador getJogador() {
-		return jogador;
-	}
-	public void setJogador(Jogador jogador) {
-		this.jogador = jogador;
-	}
-	public Partida getPartida() {
-		return partida;
-	}
-	public void setPartida(Partida partida) {
-		this.partida = partida;
-	}
-	public String getTipoCartao() {
-		return tipoCartao;
-	}
-	public void setTipoCartao(String tipoCartao) {
-		this.tipoCartao = tipoCartao;
-	}
 	
 	
 }

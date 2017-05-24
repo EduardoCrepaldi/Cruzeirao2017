@@ -1,36 +1,40 @@
 package sistema.cruzeirao;
 
-public class Juiz extends Usuario{
+import java.io.Serializable;
 
-	private String rg;
-	private int cpf;
-	private Campeonato campeonato;
-	
-	public Juiz(Campeonato campeonato){
-		setCampeonato(campeonato);
-	}
-	
-	public String getRg() {
-		return rg;
-	}
-	public void setRg(String rg) {
-		this.rg = rg;
-	}
-	public int getCpf() {
-		return cpf;
-	}
-	public void setCpf(int cpf) {
-		this.cpf = cpf;
-	}
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
-	public Campeonato getCampeonato() {
-		return campeonato;
+@Entity
+public class Juiz implements Serializable{
+
+	private static long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int idJuiz;
+	//TODO private enum Tipo
+	
+	private Usuario usuario;
+
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	public void setCampeonato(Campeonato campeonato) {
-		this.campeonato = campeonato;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
-	
+
+	public int getIdJuiz() {
+		return idJuiz;
+	}
+
+	public void setIdJuiz(int idJuiz) {
+		this.idJuiz = idJuiz;
+	}
 	
 	
 }

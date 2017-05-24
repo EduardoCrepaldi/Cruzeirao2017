@@ -1,27 +1,85 @@
 package sistema.cruzeirao;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Timer;
 
-public class Partida {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
-	private Partida proxPartida;
-	private Time timeVisitante;
-	private Time timeMandante;
-	private Timer tempo;
-	private Juiz juiz;
-	private Placar placar;
-	private ArrayList<Cartao> cartoes = new ArrayList<Cartao>();
-	private Chave chave;
+
+@Entity
+
+public class Partida implements Serializable{
+
+	private static final long SerialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int idPartida;
+	
+	private int numero;
+	@ManyToOne
+	private Inscricao equipeMandante;
+	@ManyToOne
+	private Inscricao equipeVisitante;
+	
+	@Temporal(TemporalType.DATE)
+	private Date data;
+	
+	@OneToOne
 	private Local local;
 	
-	public Partida(Local local){
-		setLocal(local);
+	@OneToOne
+	private Partida proxPartida;
+	
+	@OneToMany
+	private ArrayList<Juiz> juizes = new ArrayList<Juiz>();
+	
+	@ManyToOne
+	private Grupo grupo;
+	
+	private String relatoString;
+	
+	public int getNumero() {
+		return numero;
 	}
-	
-	
-	public void addCartoes(Cartao cartao){
-		cartoes.add(cartao);
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+	public Inscricao getEquipeMandante() {
+		return equipeMandante;
+	}
+	public void setEquipeMandante(Inscricao equipeMandante) {
+		this.equipeMandante = equipeMandante;
+	}
+	public Inscricao getEquipeVisitante() {
+		return equipeVisitante;
+	}
+	public void setEquipeVisitante(Inscricao equipeVisitante) {
+		this.equipeVisitante = equipeVisitante;
+	}
+	public Date getData() {
+		return data;
+	}
+	public void setData(Date data) {
+		this.data = data;
+	}
+	public Local getLocal() {
+		return local;
+	}
+	public void setLocal(Local local) {
+		this.local = local;
 	}
 	public Partida getProxPartida() {
 		return proxPartida;
@@ -29,58 +87,33 @@ public class Partida {
 	public void setProxPartida(Partida proxPartida) {
 		this.proxPartida = proxPartida;
 	}
-	public Time getTimeVisitante() {
-		return timeVisitante;
+	public ArrayList<Juiz> getJuizes() {
+		return juizes;
 	}
-	public void setTimeVisitante(Time timeVisitante) {
-		this.timeVisitante = timeVisitante;
+	public void setJuizes(ArrayList<Juiz> juizes) {
+		this.juizes = juizes;
 	}
-	public Time getTimeMandante() {
-		return timeMandante;
+	public Grupo getGrupo() {
+		return grupo;
 	}
-	public void setTimeMandante(Time timeMandante) {
-		this.timeMandante = timeMandante;
+	public void setGrupo(Grupo grupo) {
+		this.grupo = grupo;
 	}
-	public Timer getTempo() {
-		return tempo;
+	public String getRelatoString() {
+		return relatoString;
 	}
-	public void setTempo(Timer tempo) {
-		this.tempo = tempo;
+	public void setRelatoString(String relatoString) {
+		this.relatoString = relatoString;
 	}
-	public Juiz getJuiz() {
-		return juiz;
+	public int getIdPartida() {
+		return idPartida;
 	}
-	public void setJuiz(Juiz juiz) {
-		this.juiz = juiz;
+	public void setIdPartida(int idPartida) {
+		this.idPartida = idPartida;
 	}
-	public Placar getPlacar() {
-		return placar;
-	}
-	public void setPlacar(Placar placar) {
-		this.placar = placar;
-	}
-	public ArrayList<Cartao> getCartoes() {
-		return cartoes;
-	}
-	public void setCartoes(ArrayList<Cartao> cartoes) {
-		this.cartoes = cartoes;
-	}
-	public Chave getChave() {
-		return chave;
-	}
-	public void setChave(Chave chave) {
-		this.chave = chave;
-	}
-
-
-	public Local getLocal() {
-		return local;
-	}
-
-
-	public void setLocal(Local local) {
-		this.local = local;
-	}
+	
+	
+	
 	
 	
 	
