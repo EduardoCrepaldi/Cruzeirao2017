@@ -20,7 +20,20 @@ public class Local implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idLocal;
 	
+	
 	private String endereco;
+	
+	private String nome;
+	
+	
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
 	public String getEndereco() {
 		return endereco;
