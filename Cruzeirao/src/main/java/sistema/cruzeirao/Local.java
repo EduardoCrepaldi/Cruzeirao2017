@@ -1,15 +1,14 @@
 package sistema.cruzeirao;
 
-import java.awt.Image;
 import java.io.Serializable;
-import java.util.ArrayList;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
-import org.eclipse.persistence.internal.libraries.asm.commons.SerialVersionUIDAdder;
+
 
 @Entity
 public class Local implements Serializable{
@@ -25,7 +24,8 @@ public class Local implements Serializable{
 	
 	private String nome;
 	
-	
+	@Lob
+	private byte[] image;
 
 	public String getNome() {
 		return nome;
@@ -50,6 +50,15 @@ public class Local implements Serializable{
 	public void setIdLocal(int idLocal) {
 		this.idLocal = idLocal;
 	}
+
+	public byte[] getImage() {
+		return image;
+	}
+
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
+	
 	
 	
 	

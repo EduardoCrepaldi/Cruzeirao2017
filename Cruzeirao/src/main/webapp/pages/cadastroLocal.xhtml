@@ -29,85 +29,21 @@
       <p:inputText value="#{localMB.local.endereco}"/>
       
       <p:outputLabel value="#{msg['pages.cadastroLocal.inserir']}" />
-      <p:fileUpload value="#{fileUploadView.file}" mode="simple" skinSimple="true"/>
+      <p:fileUpload value="#{localMB.local.image}" mode="simple" skinSimple="true"/>
       
 	   </p:panelGrid>
 	   
 	   <p:commandButton value="#{msg['pages.cadastroLocal.btnSalvar']}" 
-	                 icon="ui-icon-check" oncomplete="PF('dlg').show()"
-					style="margin-top:10px;"
+	                
+					
 					action="#{localMB.salvar}"
-					update=":formLocal, :formTableLocais:tabelaLocais"
+					update=":formLocal"
 	                 />
        </h:form>
        
-       <br/>
+     
        
-       <h3><p:outputLabel value="Locais ja cadastrados"/> </h3>
-       <h:form id="formTableLocais">
-	       <p:dataTable
-	       		value="#{localMB.locais}"
-	       		var="aux"
-	       		id="tabelaLocais"
-	       		
-	       		editable="false"
-	       		
-	       		paginator="true"
-	       		rows="5"
-	       		paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-	            rowsPerPageTemplate="5,10,15"
-	                
-	            emptyMessage="Nenhum local selecionado"
-	       >
-	       
-	       <p:ajax event="rowEdit" listener="#{localMB.onRowEdit}" update="tabelaLocais" />
-	      
-	      <p:column headerText="ID" filterBy="#{aux.idLocal}">
-	        <p:outputLabel value="#{aux.idLocal}" />
-	      </p:column>
-	      
-	      
-	      
-	      <p:column headerText="Nome do Local" filterBy="#{aux.nome}">
-	    
-	    			<p:cellEditor>
-						<f:facet name="output">
-							<p:outputLabel value="#{aux.nome}" />
-						</f:facet>
-						<f:facet name="input">
-							<p:inputText id="LocalNome" value="#{aux.nome}"
-								style="width:100%" />
-						</f:facet>
-					</p:cellEditor>
-		  </p:column>
-	    
-	      <p:column headerText="Endereco" filterBy="#{aux.endereco}">
-	     
-	     			<p:cellEditor>
-						<f:facet name="output">
-							<p:outputLabel value="#{aux.endereco}" />
-						</f:facet>
-						<f:facet name="input">
-							<p:inputText id="enderecoLocal" value="#{aux.endereco}"
-								style="width:100%" />
-						</f:facet>
-					</p:cellEditor>
-	      </p:column>
-	      
-	      <p:column style="width:70px" headerText="Opcao">
-						
-						<p:rowEditor />
-						
-						<p:commandLink id="remover" styleClass="ui-icon ui-icon-trash"
-							style="text-align:center"
-							actionListener="#{localMB.remover(aux)}"
-							update="tabelaLocais" />
-		  </p:column>
-	       
-	       
-	       
-	       </p:dataTable>
-	</h:form>
+
       
 	</center>
 	

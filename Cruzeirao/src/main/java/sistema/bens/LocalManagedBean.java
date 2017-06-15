@@ -6,6 +6,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
 import org.primefaces.event.RowEditEvent;
+import org.primefaces.model.UploadedFile;
 
 import sistema.cruzeirao.Local;
 import sistema.service.LocalService;
@@ -17,6 +18,7 @@ public class LocalManagedBean {
 	private Local local = new Local();
 	private List<Local> locais;
 	private LocalService service = new LocalService();
+	private UploadedFile file;
 	
 	public void onRowEdit(RowEditEvent event){
 		Local l = ((Local) event.getObject());
@@ -24,13 +26,21 @@ public class LocalManagedBean {
 	}
 	
 	public void salvar(){
+		try{
+			if(file != null)
+				local.setImage(file.getContents());
+			
+			local = service.salvar(local);
+			
+			if(locais != null)
+				locais.add(local);
+			
+			local = new Local();
+		}catch(Exception e){
+			e.printStackTrace();
+            //FacesUtil.addErrorMessage(e.getMessage());
+		}
 		
-		local = service.salvar(local);
-		
-		if(locais != null)
-			locais.add(local);
-		
-		local = new Local();
 	}
 	
 	public Local getLocal(){
@@ -52,6 +62,14 @@ public class LocalManagedBean {
 		service.remover(local);
 		locais.remove(local);
 		
+	}
+
+	public UploadedFile getFile() {
+		return file;
+	}
+
+	public void setFile(UploadedFile file) {
+		this.file = file;
 	}
 	
 	

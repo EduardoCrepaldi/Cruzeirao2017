@@ -14,6 +14,12 @@
 </h:head>
 <h:body>
 
+		<f:metadata>
+			<f:event listener="#{loginBean.preRender}"
+				type="preRenderView" />
+		  </f:metadata>
+		
+
         
           <div align="center">
             <p:graphicImage 
@@ -41,16 +47,21 @@
 								<p:watermark for="password" value="Senha" />
 							</p:password>
 
-							<p:commandButton value="Login" ajax = "false"  action="templateMenu.xhtml"
+							<p:commandButton value="Login" ajax = "false"  action="#{loginBean.login}"
 							    style="width: 50%; max-width: 200px;" />
-							<br/>
+							
+							 
+						</h:panelGrid>
+						
+					</h:form>
+					<br/>
+					<h:form>
+						
 							<p:outputLabel  value="Não possui cadastro?"/>  
 							<br/>
 							<p:commandButton value="Cadastre-se!" ajax = "false"  action="cadastroUsuario.xhtml"
 							    style="width: 50%; max-width: 200px;" size="30" /> 
-							 
-						</h:panelGrid>
-						
+					
 					</h:form>
               </div>
 

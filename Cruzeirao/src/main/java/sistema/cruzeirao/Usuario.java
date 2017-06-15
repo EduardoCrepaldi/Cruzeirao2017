@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -17,16 +18,20 @@ import enums.Sexo;
 import enums.TipoUsuario;
 
 @Entity
+@NamedQuery(name = "Usuario.pesquisarPorUserName", query = "select u from Usuario u where u.userName = :userName")
 public class Usuario implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
+	public static final String PESQUISAR_POR_USERNAME = "Usuario.pesquisarPorUserName";
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)//auto incremento para codUsuario
 	private int idUsuario;
 	
 	private String email;
-	private String nome;
+	private String userName;
+	private String password;
+	private String senha;
 	@Temporal(TemporalType.DATE)//tipo data no BD
 	private Date dataNascimento;
 	
@@ -56,11 +61,11 @@ public class Usuario implements Serializable{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getNome() {
-		return nome;
+	public String getUserName() {
+		return userName;
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setUserName(String nome) {
+		this.userName = nome;
 	}
 	public Date getDataNascimento() {
 		return dataNascimento;
@@ -146,6 +151,50 @@ public class Usuario implements Serializable{
 	public void setIdUsuario(int idUsuario) {
 		this.idUsuario = idUsuario;
 	}
+	public String getSenha() {
+		return senha;
+	}
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((userName == null) ? 0 : userName.hashCode());
+		result = prime * result + idUsuario;
+		return result;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Usuario other = (Usuario) obj;
+		if (userName == null) {
+			if (other.userName != null)
+				return false;
+		} else if (!userName.equals(other.userName))
+			return false;
+		if (idUsuario != other.idUsuario)
+			return false;
+		return true;
+	}
 
+	
+	
 	
 }
