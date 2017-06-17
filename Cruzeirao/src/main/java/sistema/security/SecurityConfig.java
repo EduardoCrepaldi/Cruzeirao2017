@@ -35,21 +35,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     	http.csrf().disable();
     	    	
     	//Página de acesso negado
-        http.exceptionHandling().accessDeniedPage("/acessonegado.xhtml");
+        http.exceptionHandling().accessDeniedPage("/pages/inicial/acessonegado.xhtml");
         
         //Libera todos os recursos do JSF
-        http.authorizeRequests().antMatchers("/javax.faces.resource/**","/pages/**").permitAll();
+        http.authorizeRequests().antMatchers("/javax.faces.resource/**","/pages/inicial/**" , "/webapp/resources/**").permitAll();
         
-        
+            
         //Controla o acesso a página protegida  do adm        
-        http.authorizeRequests().antMatchers("/pages/**").hasRole("ORGANIZADOR");
+        http.authorizeRequests().antMatchers("/pages/**").hasAnyRole("ORGANIZADOR","JOGADOR","DIRETOR","PREPARADOR_FISICO", "MASSAGISTA","TECNICO");
                 
     	
     	//Login
-    	http.formLogin().loginPage("/pages/login.xhtml").permitAll()
-		.defaultSuccessUrl("/pages/cadastroUsuario.xhtml", true)
-		.failureUrl("/login.xhtml?error=true")
-		.usernameParameter("username")
+    	http.formLogin().loginPage("/pages/inicial/login.xhtml").permitAll()
+		.defaultSuccessUrl("/pages/inicio.xhtml", true)
+		.failureUrl("/pages/inicial/login.xhtml?error=true")
+		.usernameParameter("userName")
 		.passwordParameter("password");
     	
     	
@@ -67,8 +67,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/resources/**");
-        web.ignoring().antMatchers("/javax.faces.resource/**");
+        web.ignoring().antMatchers("/resources/**", "/javax.faces.resource/**","/webapp/resources/**");
+      
     }
 }
 

@@ -32,8 +32,8 @@ public class Usuario implements Serializable{
 	private String userName;
 	private String password;
 	private String senha;
-	@Temporal(TemporalType.DATE)//tipo data no BD
-	private Date dataNascimento;
+	
+	private String dataNascimento;
 	
 	@ManyToMany(mappedBy = "diretores")
 	private ArrayList<Equipe> equipes = new ArrayList<Equipe>();
@@ -67,10 +67,10 @@ public class Usuario implements Serializable{
 	public void setUserName(String nome) {
 		this.userName = nome;
 	}
-	public Date getDataNascimento() {
+	public String getDataNascimento() {
 		return dataNascimento;
 	}
-	public void setDataNascimento(Date dataNascimento) {
+	public void setDataNascimento(String dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 	public ArrayList<Equipe> getEquipes() {
@@ -194,7 +194,11 @@ public class Usuario implements Serializable{
 		return true;
 	}
 
+	public Sexo[] getSexos(){
+		return Sexo.values();
+	}
 	
-	
-	
+	public TipoUsuario[] getTipos(){
+		return TipoUsuario.values();
+	}
 }

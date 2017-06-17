@@ -5,6 +5,8 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 
+import com.sun.faces.action.RequestMapping;
+
 import sistema.primefaces.util.AlertaUtil;
 
 @ManagedBean
@@ -23,6 +25,6 @@ public class LoginBean{
 		}
 		
 	}
-	
+
 	
 }

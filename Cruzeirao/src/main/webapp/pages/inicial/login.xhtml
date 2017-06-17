@@ -1,0 +1,50 @@
+<ui:composition template="tempInicial.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="title">
+		<h:outputText value="#{msg['pages.login.title']}" />
+	</ui:define>
+
+	<ui:define name="principal">
+		
+		<f:metadata>
+			<f:event listener="#{loginBean.preRender}"
+				type="preRenderView" />
+		  </f:metadata>
+		
+		<div class="principal" align="center">
+			<p:growl id="messages" sticky="false" life="3000" for="mensagemGrowl"
+				autoUpdate="true" />
+			<div class="container">
+				<h:form id="login" prependId="false">
+					<p:focus />
+					
+					<p:panelGrid columns="2" columnClasses="label, value" style="margin:50px;">
+
+						<h:outputText value="Enter you email:" />
+						<p:inputText type="text" id="username"
+							placeholder="#{msg['pages.login.username']}" />
+
+						<h:outputText value="Enter you passwaord: " />
+						<p:inputText type="password" id="password"
+							placeholder="#{msg['pages.login.password']}" />
+
+					</p:panelGrid>
+					
+					<p:commandLink action="Login" ajax="false"
+						style="width: 50%; max-width: 200px;">
+						<p:graphicImage library="sistema" name="imagens/login.png"
+							alt="Login" width="103" height="42" style="margin-left: 90px;" />
+					</p:commandLink>
+					
+					<p:spacer />
+				</h:form>
+			</div>
+		</div>
+	</ui:define>
+
+</ui:composition>

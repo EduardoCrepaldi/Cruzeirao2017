@@ -1,0 +1,94 @@
+@CHARSET "ISO-8859-1";
+
+
+div.background {
+	background-color: #000000;
+	background-image: -webkit-radial-gradient(top, circle cover, #D3D3D3, #ADD8E6 80%);
+	background-image: -moz-radial-gradient(top, circle cover, #D3D3D3, #ADD8E6 80%);
+	background-image: -o-radial-gradient(top, circle cover, #D3D3D3, #ADD8E6 80%);
+	background-image: radial-gradient(top, circle cover, #D3D3D3, #ADD8E6 80%);
+	height: 100%;
+	
+}
+
+
+.ui-layout-north .ui-layout-unit-content {
+	overflow: visible !important;
+	background-color: black;
+}
+
+
+/*Tecla do Login */
+input.btnLogin {
+	background-color: #000000;
+	color: #ffffff;
+	padding: 16px;
+	font-size: 16px;
+	border: 3px #ffffff ridge;
+	cursor: pointer;
+}
+
+
+/*Parte de cima principal dos menus*/
+ul.bar {
+	list-style-type: none;
+	margin: 0;
+	padding-left: 10%;
+	padding-right: 10%;
+	width: 80%;
+	background-color: #000000;
+	position:inherit;
+	top: 0;
+	z-index: 25;
+	overflow: visible;
+}
+/*Organizar menus*/
+li.bar {
+	float: left;
+	position: relative;
+	display: inline-block; 
+	background-color: black;
+}
+
+li.bar a {
+	display: block;
+	color: #000000;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+li.bar a:hover {
+	background-color: #111;
+}
+
+
+
+/*Botoes de menus inicio*/
+.dropbtn {
+	background-color: #000000;
+	color: #ffffff;
+	padding: 16px;
+	font-size: 16px;
+	border: 3px #ffffff ridge;
+	cursor: pointer;
+}
+
+
+/* The container <div> - needed to position the dropdown content  NECESSARIOOOO*/
+.dropdown {
+	float: left;
+	position: relative;
+	display: inline-block;
+}
+
+#preto{
+	background-color: black;
+}
+#NorteP{
+	background-color: black;
+}
+#SulP{
+	background-color: black;
+}
+

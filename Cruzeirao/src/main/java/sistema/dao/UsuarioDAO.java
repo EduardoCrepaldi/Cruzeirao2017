@@ -14,7 +14,7 @@ public class UsuarioDAO extends DAOImpl<Usuario, Integer>{
 
 	public Usuario pesquisarPorUserName(String userName) {
 			Map<String, Object> parametros = new HashMap<String, Object>();
-			parametros.put("username", userName);
+			parametros.put("userName", userName);
 
 			return super.pesquisarUm(Usuario.PESQUISAR_POR_USERNAME, parametros);
 	}

@@ -30,7 +30,7 @@ public class LocalManagedBean {
 			if(file != null)
 				local.setImage(file.getContents());
 			
-			local = service.salvar(local);
+			local = service.salvar(local);//deixa no banco
 			
 			if(locais != null)
 				locais.add(local);

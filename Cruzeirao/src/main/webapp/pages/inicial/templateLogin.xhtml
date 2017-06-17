@@ -1,0 +1,32 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ul class="bar" >
+		<li class="dropdown"><a href="index.xhtml" >
+				<button class="dropbtn">
+					<p:outputLabel value="Inicio" />
+					<i class="material-icons">group</i>
+				</button>
+		</a></li>
+
+		
+		<li class="bar">
+			<form action="login.xhtml">
+				<input type="submit" value="Login"
+					class="btnLogin" style="margin-right: 20px; margin-top: 10px;" />
+			</form>
+		</li>
+		<li class="bar">
+			<form action="cadastroUsuario.xhtml">
+				<input type="submit"
+					value="Cadastre-se" class="btnLogin"
+					style="margin-right: 20px; margin-top: 10px;" />
+			</form>
+		</li>
+	</ul>
+	
+	
+</ui:composition>
