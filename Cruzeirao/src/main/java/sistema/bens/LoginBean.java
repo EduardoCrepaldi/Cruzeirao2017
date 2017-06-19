@@ -23,6 +23,11 @@ public class LoginBean{
 		}
 		
 	}
+	public String cadastro (){
+		
+		return "cadastroUsuario.xhtml";
+		
+	}
 	
 	
 }

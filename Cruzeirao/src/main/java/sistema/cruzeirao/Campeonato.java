@@ -47,6 +47,12 @@ public class Campeonato implements Serializable{
 	public String getNome() {
 		return nome;
 	}
+	public int getIdCampeonato() {
+		return idCampeonato;
+	}
+	public void setIdCampeonato(int idCampeonato) {
+		this.idCampeonato = idCampeonato;
+	}
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
