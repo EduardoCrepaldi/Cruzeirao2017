@@ -38,17 +38,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.exceptionHandling().accessDeniedPage("/pages/inicial/acessonegado.xhtml");
         
         //Libera todos os recursos do JSF
-        http.authorizeRequests().antMatchers("/javax.faces.resource/**","/pages/inicial/**" , "/webapp/resources/**").permitAll();
+        http.authorizeRequests().antMatchers("/javax.faces.resource/**","/pages/**" , "/webapp/resources/**").permitAll();
         
             
-        //Controla o acesso a página protegida  do adm        
-        http.authorizeRequests().antMatchers("/pages/**").hasAnyRole("ORGANIZADOR","JOGADOR","DIRETOR","PREPARADOR_FISICO", "MASSAGISTA","TECNICO");
+        //Controla o acesso a página protegida  Organizador        
+        http.authorizeRequests().antMatchers("/pages/organizador/**","/pages/**").hasRole("Organizador");
                 
+        //Controla o aceso a pagina protegida Diretor
+        http.authorizeRequests().antMatchers("/pages/diretor/**").hasRole("Diretor");
     	
     	//Login
-    	http.formLogin().loginPage("/pages/inicial/login.xhtml").permitAll()
+    	http.formLogin().loginPage("/pages/comuns/inicial/login.xhtml").permitAll()
 		.defaultSuccessUrl("/pages/inicio.xhtml", true)
-		.failureUrl("/pages/inicial/login.xhtml?error=true")
+		.failureUrl("/pages/comuns/inicial/login.xhtml?error=true")
 		.usernameParameter("userName")
 		.passwordParameter("password");
     	

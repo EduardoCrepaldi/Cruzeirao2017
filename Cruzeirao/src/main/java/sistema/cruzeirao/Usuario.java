@@ -2,7 +2,7 @@ package sistema.cruzeirao;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,8 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+
 
 import enums.Sexo;
 import enums.TipoUsuario;
@@ -31,7 +30,6 @@ public class Usuario implements Serializable{
 	private String email;
 	private String userName;
 	private String password;
-	private String senha;
 	
 	private String dataNascimento;
 	
@@ -151,12 +149,7 @@ public class Usuario implements Serializable{
 	public void setIdUsuario(int idUsuario) {
 		this.idUsuario = idUsuario;
 	}
-	public String getSenha() {
-		return senha;
-	}
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
