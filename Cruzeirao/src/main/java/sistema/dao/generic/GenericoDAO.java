@@ -26,7 +26,7 @@ public abstract class GenericoDAO<T> {
 
 	public GenericoDAO() {
 		if (emf == null)
-			emf = Persistence.createEntityManagerFactory("Cruzeirao2017");
+			emf = Persistence.createEntityManagerFactory("Cruzeirao");
 
 		// Usar CDI!!!!
 		em = emf.createEntityManager();

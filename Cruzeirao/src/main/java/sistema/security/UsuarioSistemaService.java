@@ -10,8 +10,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
+import sistema.cdi.util.CDIServiceLocator;
 import sistema.cruzeirao.Usuario;
-import sistema.dao.UserDAO;
+
 import sistema.dao.UsuarioDAO;
 
 
@@ -29,7 +30,7 @@ public class UsuarioSistemaService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(final String login) throws UsernameNotFoundException {
 		
-		UserDAO usuarioService = new UserDAO();
+		UsuarioDAO usuarioService = CDIServiceLocator.getBean(UsuarioDAO.class);
 				
 		//Pesquisar o usuário no banco
 		Usuario usuario = usuarioService.pesquisarPorUserName(login);

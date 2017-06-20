@@ -15,60 +15,64 @@
 					<f:view transient="true">
 						<h:form id="formUsuario" enctype="multipart/form-data">
 							<h:panelGrid columns="2" columnClasses="label,value" style="margin:50px;">
+								
 								<h:outputText value="#{msg['pages.inicial.email']}"/>
-								<p:inputText type="text" placeholder="#{msg['pages.inicial.emailUsuario']}" size="30"
-											maxlength="80" value="#{usuarioMB.usuario.email}"/>
+								<p:inputText type="text" placeholder="#{msg['pages.inicial.emailUsuario']}" 
+											 value="#{usuarioManagedBean.usuario.email}"/>
 											
 								
 								<h:outputText value="#{msg['pages.inicial.nome']}"/>
-								<p:inputText type="text" placeholder="#{msg['pages.inicial.nomeUsuario']}" size="30"
-											maxlength="80" value="#{usuarioMB.usuario.username}"/>
+								<p:inputText type="text" placeholder="#{msg['pages.inicial.nomeUsuario']}" 
+										 value="#{usuarioManagedBean.usuario.username}"/>
 											
 								<h:outputText value="#{msg['pages.inicial.dataNascimento']}"/>
-								<p:inputMask id="date" value="#{usuarioMB.usuario.dataNascimento}"
+								<p:inputMask id="date" value="#{usuarioManagedBean.usuario.dataNascimento}"
 									placeholder="Date birth" mask="99/99/9999" />
 								
 								
 								<h:outputText value="#{msg['pages.inicial.telefoneFixo']}" />
 								<p:inputText type="text" placeholder="#{msg['pages.inicial.telefoneFixoX']}"
-									value="#{usuarioMB.usuario.telefoneFixo}" />
+									value="#{usuarioManagedBean.usuario.telefoneFixo}" />
 	
 								<h:outputText value="#{msg['pages.inicial.telefoneMovel']}" />
 								<p:inputText type="text" placeholder="#{msg['pages.inicial.telefoneMovelX']}"
-									value="#{usuarioMB.usuario.telefoneMovel}" />
+									value="#{usuarioManagedBean.usuario.telefoneMovel}" />
 								
 								<h:outputText value="#{msg['pages.inicial.endereco']}" />
 								<p:inputText type="text" placeholder="#{msg['pages.inicial.endereco']}"
-									value="#{usuarioMB.usuario.endereco}" />
+									value="#{usuarioManagedBean.usuario.endereco}" />
 								
 								<h:outputText value="#{msg['pages.inicial.RG']}" />
 								<p:inputText type="text" placeholder="#{msg['pages.inicial.RGX']}"
-									value="#{usuarioMB.usuario.rg}" />
+									value="#{usuarioManagedBean.usuario.rg}" />
 								
 								<h:outputText value="#{msg['pages.inicial.CPF']}" />
 								<p:inputText type="text" placeholder="#{msg['pages.inicial.CPFX']}"
-									value="#{usuarioMB.usuario.cpf}" />
+									value="#{usuarioManagedBean.usuario.cpf}" />
 									
 								<h:outputText value="#{msg['pages.inicial.Sexo']}" />
-								<p:selectOneMenu id="sexo" value="#{usuarioMB.usuario.sexo}" >
+								<p:selectOneMenu id="multiple" value="#{usuarioManagedBean.usuario.sexo}" >
 								
-									<f:selectItems value="#{usuarioMB.usuario.sexos}"/>
+									<f:selectItems value="#{usuarioManagedBean.usuario.sexos}"/>
 								</p:selectOneMenu>
 	
 								<h:outputText value="#{msg['pages.inicial.Tipo']}" />
-								<p:selectOneMenu id="tipo" value="#{usuarioMB.usuario.role}">
-									<f:selectItems value="#{usuarioMB.usuario.roles}"/>
+								<p:selectOneMenu id="roles" value="#{usuarioManagedBean.usuario.role}" >
+									<f:selectItems value="#{usuarioManagedBean.usuario.roles}"/>
 								</p:selectOneMenu>
 	
 								<h:outputLabel value="#{msg['pages.inicial.senha']}" />
 				        		<p:password placeholder="#{msg['pages.inicial.senhaX']}" id="inlineFeedback"
-				        		value="#{usuarioMB.usuario.password}" feedback="true" inline="true" />
+				        		value="#{usuarioManagedBean.usuario.password}" feedback="true" inline="true" />
 								
 								
 								</h:panelGrid>
 								<br/>
-								<p:commandButton actionListener="#{usuarioMB.salvar}" ajax="false" style="width: 50%; max-width: 200px;" value="Salvar"/>
-									
+								<p:commandLink actionListener="#{usuarioManagedBean.salvar}" ajax="false"
+									style="width: 50%; max-width: 200px;">
+									<p:graphicImage library="sistema" name="imagens/registrar.jpg"
+										alt="Login" width="153" height="82" style="margin-left: 90px;" />
+								</p:commandLink>
 								
 								
 								<p:spacer/>

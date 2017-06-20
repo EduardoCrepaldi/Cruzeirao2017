@@ -25,20 +25,23 @@
 						
  			<h:form id="login" prependId="false">
 						<p:focus />
-						<h:panelGrid id="panel" style="margin:3%; text-align: center">
+						<h:panelGrid  columns="2" columnClasses="label, value" style="margin:50px; text-align: center">
 
-							<p:inputText type="text" id="username" autocomplete="off" size="30"
-								maxlength="80" label="Usuário">
-								<p:watermark for="username" value="Usuário" />
-							</p:inputText>
+							<h:outputText value="Usuario:" />
+							<p:inputText type="text" id="username"/>
+							
+							<h:outputText value="Senha:" />
+							<p:inputText type="password" id="password"/>
 
-							<p:password  size="30" id="password" value="Senha:" maxlength="20">
-								<p:watermark for="password" value="Senha" />
-							</p:password>
-
-							<p:commandButton value="Login" action="#{loginBean.login}" ajax="false"
-							    style="width: 50%; max-width: 200px;" />
 						</h:panelGrid>
+						
+						<p:commandLink action="Login" ajax="false"
+						style="width: 50%; max-width: 200px;">
+						<p:graphicImage library="sistema" name="imagens/login.png"
+							alt="Login" width="103" height="42" style="margin-left: 90px;" />
+						</p:commandLink>
+						
+						<p:spacer />
 					</h:form>
               </div>
 

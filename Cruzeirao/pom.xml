@@ -4,16 +4,19 @@
   <artifactId>Cruzeirao</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
-  
-  	<properties>
+  	<name>Cruzeirao</name>
+
+	<properties>
 		<eclipselink.version>2.6.2</eclipselink.version>
 		<spring-security.version>4.2.1.RELEASE</spring-security.version>
 		<jstlel.version>1.2.1</jstlel.version>
 		<commons-logging.version>1.2</commons-logging.version>
+		<cdi-api.version>1.2</cdi-api.version>
+		<weld.version>2.2.15.Final</weld.version>
 	</properties>
-	
-	
-  <build>
+
+
+	<build>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -47,7 +50,7 @@
 			<version>10.2.2.0</version>
 		</dependency>
 
-	<!-- JPA EclipseLink -->
+		<!-- JPA EclipseLink -->
 		<dependency>
 			<groupId>org.eclipse.persistence</groupId>
 			<artifactId>eclipselink</artifactId>
@@ -60,8 +63,8 @@
 			<version>${eclipselink.version}</version>
 			<scope>compile</scope>
 		</dependency>
-		
-		
+
+
 		<!-- Spring Security -->
 		<dependency>
 			<groupId>org.apache.taglibs</groupId>
@@ -85,14 +88,39 @@
 			<scope>test</scope>
 		</dependency>
 
-<!-- Commons Logging -->
+		<!-- Commons Logging -->
 		<dependency>
 			<groupId>commons-logging</groupId>
 			<artifactId>commons-logging</artifactId>
 			<version>${commons-logging.version}</version>
 		</dependency>
 
-  </dependencies>
-  
-  
+
+		<!-- Implementação CDI - Weld -->
+		<dependency>
+			<groupId>org.jboss.weld.servlet</groupId>
+			<artifactId>weld-servlet</artifactId>
+			<version>${weld.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.enterprise</groupId>
+			<artifactId>cdi-api</artifactId>
+			<version>${cdi-api.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<!-- Apache Commons Upload -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.2.1</version> <!-- makesure correct version here -->
+		</dependency>
+	</dependencies>
+
+
 </project>

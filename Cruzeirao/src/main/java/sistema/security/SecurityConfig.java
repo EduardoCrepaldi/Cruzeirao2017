@@ -16,9 +16,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 private static UserDetailsService usuarioService = new UsuarioSistemaService();
 	
-	public SecurityConfig() {
-		 
-	}
+	
 	
    @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {

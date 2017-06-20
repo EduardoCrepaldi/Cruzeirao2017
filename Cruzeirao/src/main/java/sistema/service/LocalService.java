@@ -9,7 +9,7 @@ public class LocalService {
 	LocalDAO localDAO = new LocalDAO();
 	
 	public Local salvar(Local local){
-		local = localDAO.save(local);
+		local = localDAO.salvar(local);
 		localDAO.closeEntityManager();
 		return local;
 	}
@@ -21,13 +21,13 @@ public class LocalService {
 	}
 	
 	public void alterar(Local local){
-		localDAO.save(local);
+		localDAO.salvar(local);
 		localDAO.closeEntityManager();
 	}
 	
 	public void remover(Local local){
 		local = localDAO.getById(Local.class, local.getIdLocal());
-		localDAO.remove(local);
+		localDAO.remover(local);
 		localDAO.closeEntityManager();
 	}
 	

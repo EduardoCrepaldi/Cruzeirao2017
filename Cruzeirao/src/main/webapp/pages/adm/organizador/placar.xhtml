@@ -14,38 +14,7 @@
 
 	<ui:define name="principal">
 	  
-	  <center>
-	  	<h1><p:outputLabel value="#{msg['pages.placar.menuPag']}"/></h1>
-	  </center>
-	  <center>
-	  <h:form id="formCategoriaCampeonato">	
-	  <p:panelGrid columns="2">
-      <p:outputLabel value="#{msg['pages.placar.selecione']}" />
-      <p:selectOneListbox id="basic" value="#{selectOneView.option}">
-            <f:selectItem itemLabel="Cruzeirao 2016" itemValue="1" />
-            <f:selectItem itemLabel="Cruzeirao 2017" itemValue="2" />
-            <f:selectItem itemLabel="Cruzeirao 2018" itemValue="3" />
-      </p:selectOneListbox>
-      
-      <p:outputLabel value="#{msg['pages.placar.categoria']}" />
-      
-        <p:selectOneMenu id="console" value="#{selectOneMenuView.console}" style="width:125px">
-            <f:selectItem itemLabel="Categoria A" itemValue="A" />
-            <f:selectItem itemLabel="Categoria B" itemValue="B" />
-            <f:selectItem itemLabel="Categoria C" itemValue="C" />
-            <f:selectItem itemLabel="Categoria D" itemValue="D" />
-        </p:selectOneMenu>
-	   
-	   
-	   </p:panelGrid>  
-       </h:form>
-
-       <p:commandButton value="#{msg['pages.placar.btnProcurar']}" 
-	                 icon="ui-icon-check" oncomplete="PF('dlg').show()"
-					style="margin-top:10px;"
-					action="partidas.xhtml"
-	                 />
-	</center>
+	  <h2>NENHUM JOGO ENCONTRADO</h2>
 	
 	   
 	</ui:define>

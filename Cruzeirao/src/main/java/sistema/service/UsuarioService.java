@@ -2,34 +2,52 @@ package sistema.service;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Service;
+
 import sistema.cruzeirao.Usuario;
-import sistema.dao.UserDAO;
+
+import sistema.dao.UsuarioDAO;
+import sistema.dao.transactional.Transactional;
 
 
+@Service
 public class UsuarioService {
 
-	UserDAO usuarioDAO = new UserDAO();
-	
-	public Usuario salvar(Usuario usuario){
-		usuario = usuarioDAO.save(usuario);
-		usuarioDAO.closeEntityManager();
+	@Inject
+	UsuarioDAO userDAO;
+
+	public UsuarioService() {
+		userDAO = new UsuarioDAO();
+	}
+
+	@Transactional
+	public Usuario salvar(Usuario usuario) {
+		userDAO.salvar(usuario);
+		userDAO.closeEntityManager();
 		return usuario;
 	}
+
+	public Usuario logado(String username) {
+		return userDAO.pesquisarPorUserName(username);
+	}
+
 	public List<Usuario> getUsuarios() {
-		List<Usuario> list = usuarioDAO.getAll(Usuario.class);
-		usuarioDAO.closeEntityManager();
+		List<Usuario> list = userDAO.getAll(Usuario.class);
+		userDAO.closeEntityManager();
 		return list;
 	}
-	
+
 	public void alterar(Usuario usuario) {
-		usuarioDAO.save(usuario);
-		usuarioDAO.closeEntityManager();
+		userDAO.atualizar(usuario);
+		userDAO.closeEntityManager();
 	}
 
 	public void remover(Usuario usuario) {
 
-		usuario = usuarioDAO.getById(Usuario.class,usuario.getId());
-		usuarioDAO.remove(usuario);
-		usuarioDAO.closeEntityManager();
+		usuario = userDAO.pesquisarPorId(usuario.getId());
+		userDAO.remover(usuario);
+		userDAO.closeEntityManager();
 	}
 }

@@ -19,7 +19,7 @@ import enums.Roles;
 @NamedQuery(name = "Usuario.pesquisarPorUserName", query = "select u from Usuario u where u.username = :username")
 public class Usuario implements Serializable{
 	
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 6360850095345609468L;
 	public static final String PESQUISAR_POR_USERNAME = "Usuario.pesquisarPorUserName";
 	
 	

@@ -4,15 +4,18 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import org.primefaces.event.RowEditEvent;
+
+import enums.Roles;
+import enums.Sexo;
 import sistema.cruzeirao.Usuario;
 import sistema.service.UsuarioService;
 
-@ManagedBean(name="usuarioMB")
+@ManagedBean
 @ViewScoped
 public class UsuarioManagedBean {
 
 	private Usuario usuario = new Usuario();
-	private List<Usuario> usuarios;
+	private List<Usuario> usuarios = null;
 	private UsuarioService service = new UsuarioService();
 	
 	public void onRowEdit(RowEditEvent event){
@@ -21,12 +24,8 @@ public class UsuarioManagedBean {
 	}
 	
 	public void salvar(){
-		
-		usuario = service.salvar(usuario);
-		
-		if(usuarios != null)
-			usuarios.add(usuario);
-		
+		//usuario.setRole(Roles.ORGANIZADOR);
+		service.salvar(usuario);
 		usuario = new Usuario();
 	}
 
@@ -57,7 +56,14 @@ public class UsuarioManagedBean {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-	
-	
+	public void atualizar(){
+		service.salvar(usuario);
+	}
+	public void remover(Usuario usuario) {
+		service.remover(usuario);
+	}
+	public Sexo[] getSexos(){
+		return Sexo.values();
+	}
 	
 }
