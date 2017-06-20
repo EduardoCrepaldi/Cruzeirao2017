@@ -6,26 +6,30 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+
 
 @Entity
 public class Juiz implements Serializable{
 
-	private static long serialVersionUID = 1L;
 	
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idJuiz;
 	//TODO private enum Tipo
 	
-	private Usuario usuario;
+	private String nome;
 
-	public Usuario getUsuario() {
-		return usuario;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public int getIdJuiz() {

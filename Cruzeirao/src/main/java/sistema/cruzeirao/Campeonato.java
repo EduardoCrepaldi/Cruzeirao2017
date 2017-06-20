@@ -2,16 +2,17 @@ package sistema.cruzeirao;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 
-import org.eclipse.persistence.internal.libraries.asm.commons.SerialVersionUIDAdder;
+
 
 @Entity
 public class Campeonato implements Serializable{
@@ -24,14 +25,14 @@ public class Campeonato implements Serializable{
 	
 	private String nome;
 	
-	@OneToMany
+	@ManyToMany
 	private ArrayList<Local> locais = new ArrayList<Local>();
 	
 	@OneToMany
 	private ArrayList<Juiz> juizes = new ArrayList<Juiz>();
 	
-	@OneToMany(mappedBy="campeonato")
-	private ArrayList<Categoria> categorias = new ArrayList<Categoria>();
+	@ManyToMany
+	private List<Categoria> categorias = new ArrayList<Categoria>();
 	
 	
 	private String dataInicioInscricao;
@@ -85,7 +86,7 @@ public class Campeonato implements Serializable{
 	public ArrayList<Juiz> getJuizes() {
 		return juizes;
 	}
-	public ArrayList<Categoria> getCategorias() {
+	public List<Categoria> getCategorias() {
 		return categorias;
 	}
 	public void setLocais(ArrayList<Local> locais) {
@@ -96,6 +97,12 @@ public class Campeonato implements Serializable{
 	}
 	public void setCategorias(ArrayList<Categoria> categorias) {
 		this.categorias = categorias;
+	}
+	public int getIdCampeonato() {
+		return idCampeonato;
+	}
+	public void setIdCampeonato(int idCampeonato) {
+		this.idCampeonato = idCampeonato;
 	}
 
 	

@@ -1,0 +1,46 @@
+<ui:composition template="InicialUser/comuns/templateMenu.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui2="http://java.sun.com/jsf/facelets"
+>
+	
+	<ui:define name="title">
+		<h:outputText value="#{msg['pages.cadastroCampeonato.title']}" />
+	</ui:define>
+	
+
+	<ui:define name="principal">
+	  
+	  <center>
+	  	<h1><p:outputLabel value="#{msg['pages.cadastroCampeonato.menu']}"/></h1>
+	  </center>
+	  <center>
+	  <h:form id="formJuiz">	
+	  <p:panelGrid columns="2">
+      <p:outputLabel value="#{msg['pages.cadastroJuiz.nome']}" />
+      <p:inputText value="#{JuizMB.juiz.nome}"/>
+
+	   </p:panelGrid>
+	   
+	   <p:commandLink actionListener="#{JuizMB.salvar}" ajax="false"
+								style="width: 50%; max-width: 200px;">
+								<p:graphicImage library="sistema" name="imagens/btnSalvar.png"
+									alt="Login" width="103" height="42" style="margin-left: 90px;" />
+		</p:commandLink>
+       </h:form>
+
+       
+	</center>
+	
+	   
+	</ui:define>
+</ui:composition>
+
+
+
+
+
+

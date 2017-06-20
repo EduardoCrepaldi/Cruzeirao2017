@@ -2,12 +2,14 @@ package sistema.cruzeirao;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
+
 import javax.persistence.OneToMany;
 
 import enums.Sexo;
@@ -25,10 +27,12 @@ public class Categoria implements Serializable{
 	private int nascidosApartirDe;
 	
 	@OneToMany(mappedBy="categoria")
-	private  ArrayList<Inscricao> inscricoes = new ArrayList<Inscricao>();
+	private  List<Inscricao> inscricoes = new ArrayList<Inscricao>();
 	
-	@ManyToOne
-	private Campeonato campeonato;
+	@ManyToMany(mappedBy="categorias")
+	private List<Campeonato> campeonatos = new ArrayList<>();
+	
+	
 	
 	@OneToMany(mappedBy="categoria")
 	private ArrayList<Fase> fases = new ArrayList<Fase>();
@@ -50,17 +54,22 @@ public class Categoria implements Serializable{
 	public void setNascidosApartirDe(int nascidosApartirDe) {
 		this.nascidosApartirDe = nascidosApartirDe;
 	}
-	public ArrayList<Inscricao> getInscricoes() {
+	public List<Inscricao> getInscricoes() {
 		return inscricoes;
 	}
 	public void setInscricoes(ArrayList<Inscricao> inscricoes) {
 		this.inscricoes = inscricoes;
 	}
-	public Campeonato getCampeonato() {
-		return campeonato;
+	
+	
+	public List<Campeonato> getCampeonatos() {
+		return campeonatos;
 	}
-	public void setCampeonato(Campeonato campeonato) {
-		this.campeonato = campeonato;
+	public void setCampeonatos(List<Campeonato> campeonatos) {
+		this.campeonatos = campeonatos;
+	}
+	public void setInscricoes(List<Inscricao> inscricoes) {
+		this.inscricoes = inscricoes;
 	}
 	public ArrayList<Fase> getFases() {
 		return fases;

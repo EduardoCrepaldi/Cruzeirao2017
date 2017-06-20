@@ -34,5 +34,19 @@ public class CategoriaService implements Serializable{
 		categoriaDAO.closeEntityManager();
 	}
 	
+	public Categoria pesquisar(Categoria fornecedor) {
+
+		fornecedor = categoriaDAO.getById(Categoria.class, fornecedor.getIdCategoria());
+		categoriaDAO.closeEntityManager();
+		return fornecedor;
+	}
+	
+	public List<Categoria> categoriaNoCampeonato(Categoria categoria) {
+
+		List<Categoria> categorias = categoriaDAO.getAll(Categoria.class);
+		categoriaDAO.closeEntityManager();
+		
+		return categorias;
+	}
 	
 }

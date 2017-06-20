@@ -1,0 +1,67 @@
+<ui:composition template="InicialUser/comuns/templateMenu.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui2="http://java.sun.com/jsf/facelets"
+>
+	
+	<ui:define name="title">
+		<h:outputText value="#{msg['pages.cadastroCategoria.title']}" />
+	</ui:define>
+	
+
+	<ui:define name="principal">
+	  
+	<center>
+	<h3>
+		<p:outputLabel value="Tabela de Juizes" />
+	</h3>
+				<h:form id="formTabelaJuiz">
+					<p:dataTable value="#{JuizMB.juizes}" var="aux"
+						id="tabelaJuiz" editable="true">
+
+						<p:ajax event="rowEdit"
+							listener="#{JuizMB.onRowEdit}"
+							update="tabelaJuiz" />
+							
+						<p:column headerText="ID" filterBy="#{aux.idJuiz}">
+							<p:cellEditor>
+								<f:facet name="output">
+									<p:outputLabel value="#{aux.idJuiz}" />
+								</f:facet>
+								<f:facet name="input">
+									<p:inputText id="JuizID" value="#{aux.idJuiz}"
+										style="width:100%" />
+								</f:facet>
+							</p:cellEditor>
+						</p:column>
+
+						<p:column headerText="Nome" filterBy="#{aux.nome}">
+							<p:cellEditor>
+								<f:facet name="output">
+									<p:outputLabel value="#{aux.nome}" />
+								</f:facet>
+								<f:facet name="input">
+									<p:inputText id="JuizNome" value="#{aux.nome}"
+										style="width:100%" />
+								</f:facet>
+							</p:cellEditor>
+						</p:column>
+
+						
+
+						<p:column style="width:70px" headerText="Opções">
+							<p:rowEditor />
+							<p:commandLink id="delete" styleClass="ui-icon ui-icon-trash"
+								style="text-align:center"
+								actionListener="#{JuizMB.delete(aux)}"
+								update="tabelaJuiz" />
+						</p:column>
+					</p:dataTable>
+				</h:form>
+			</center>
+	   
+	</ui:define>
+</ui:composition>
