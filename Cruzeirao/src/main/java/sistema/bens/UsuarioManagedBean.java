@@ -4,6 +4,8 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import org.primefaces.event.RowEditEvent;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import enums.Roles;
 import enums.Sexo;
@@ -17,6 +19,7 @@ public class UsuarioManagedBean {
 	private Usuario usuario = new Usuario();
 	private List<Usuario> usuarios = null;
 	private UsuarioService service = new UsuarioService();
+	private Usuario usuarioAtivo = null;
 	
 	public void onRowEdit(RowEditEvent event){
 		Usuario l = ((Usuario) event.getObject());
@@ -50,6 +53,7 @@ public class UsuarioManagedBean {
 	}
 
 	public Usuario getUsuario() {
+		usuarioAtivo = null;
 		return usuario;
 	}
 
@@ -65,5 +69,24 @@ public class UsuarioManagedBean {
 	public Sexo[] getSexos(){
 		return Sexo.values();
 	}
+	public Usuario getUsuarioAtivo() {
+		if (usuarioAtivo == null)
+			Ativacao();
+		return usuarioAtivo;
+	}
+
+	public void setUsuarioAtivo(Usuario usuarioAtivo) {
+		this.usuarioAtivo = usuarioAtivo;
+	}
+	
+	private void Ativacao() {
+		Object Ativo = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		String username;
+		if (Ativo instanceof UserDetails) {
+			username = ((UserDetails) Ativo).getUsername();
+			usuarioAtivo = service.Ativo(username);
+		}
+	}
+	
 	
 }

@@ -29,7 +29,7 @@ public class UsuarioService {
 		return usuario;
 	}
 
-	public Usuario logado(String username) {
+	public Usuario Ativo(String username) {
 		return userDAO.pesquisarPorUserName(username);
 	}
 

@@ -12,22 +12,22 @@
 
 	<ui:define name="principal">
 		<h:form rendered="#{request.isUserInRole('ORGANIZADOR')}">
-			<h2><center>BEM VINDO ORGANIZADOR</center></h2> 
+			<h2><center>BEM VINDO ORGANIZADOR <h4>#{usuarioManagedBean.usuarioAtivo.username}</h4></center></h2> 
 			<p>Ao lado esquerdo você escontras todas as suas opções</p>
 		</h:form>
 		
 		<h:form rendered="#{request.isUserInRole('DIRETOR')}">
-			<h2><center>BEM VINDO DIRETOR</center></h2> 
+			<h2><center>BEM VINDO DIRETOR <h4>#{usuarioManagedBean.usuarioAtivo.username}</h4></center></h2> 
 			<p>Ao lado esquerdo você escontras todas as suas opções</p>
 		</h:form>
 		
 		<h:form rendered="#{request.isUserInRole('TECNICO')}">
-			<h2><center>BEM VINDO TECNICO</center></h2> 
+			<h2><center>BEM VINDO TECNICO <h4>#{usuarioManagedBean.usuarioAtivo.username}</h4></center></h2> 
 			<p>Ao lado esquerdo você escontras todas as suas opções</p>
 		</h:form>
 		
 		<h:form rendered="#{request.isUserInRole('JOGADOR')}">
-			<h2><center>BEM VINDO Jogador</center></h2> 
+			<h2><center>BEM VINDO Jogador <h4>#{usuarioManagedBean.usuarioAtivo.username}</h4></center></h2> 
 			<p>Ao lado esquerdo você escontras todas as suas opções</p>
 		</h:form>
 	         	

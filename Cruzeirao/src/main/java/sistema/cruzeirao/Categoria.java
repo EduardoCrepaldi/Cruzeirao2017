@@ -93,6 +93,10 @@ public class Categoria implements Serializable{
 		this.idCategoria = idCategoria;
 	}
 	
+	public Sexo[] getSexos(){
+		return Sexo.values();
+	}
+	
 	
 	
 }

@@ -19,7 +19,7 @@ public abstract class DAOImpl <T, I extends Serializable>{
 
 	public DAOImpl() {
 		if (emf == null)
-			emf = Persistence.createEntityManagerFactory("Cruzeirao2017");
+			emf = Persistence.createEntityManagerFactory("Cruzeirao");
 
 		// Usar CDI!!!!
 		em = emf.createEntityManager();

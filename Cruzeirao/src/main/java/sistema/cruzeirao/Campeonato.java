@@ -2,15 +2,14 @@ package sistema.cruzeirao;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+
 
 import org.eclipse.persistence.internal.libraries.asm.commons.SerialVersionUIDAdder;
 
@@ -34,14 +33,14 @@ public class Campeonato implements Serializable{
 	@OneToMany(mappedBy="campeonato")
 	private ArrayList<Categoria> categorias = new ArrayList<Categoria>();
 	
-	@Temporal(TemporalType.DATE)
-	private Date dataInicioInscricao;
-	@Temporal(TemporalType.DATE)
-	private Date dataFimInscricao;
-	@Temporal(TemporalType.DATE)
-	private Date dataInicioCampeonato;
-	@Temporal(TemporalType.DATE)
-	private Date dataFimCampeonato;
+	
+	private String dataInicioInscricao;
+	
+	private String dataFimInscricao;
+	
+	private String dataInicioCampeonato;
+	
+	private String dataFimCampeonato;
 	
 	private double valorTaxa;
 	public String getNome() {
@@ -50,28 +49,28 @@ public class Campeonato implements Serializable{
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Date getDataInicioInscricao() {
+	public String getDataInicioInscricao() {
 		return dataInicioInscricao;
 	}
-	public void setDataInicioInscricao(Date dataInicioInscricao) {
+	public void setDataInicioInscricao(String dataInicioInscricao) {
 		this.dataInicioInscricao = dataInicioInscricao;
 	}
-	public Date getDataFimInscricao() {
+	public String getDataFimInscricao() {
 		return dataFimInscricao;
 	}
-	public void setDataFimInscricao(Date dataFimInscricao) {
+	public void setDataFimInscricao(String dataFimInscricao) {
 		this.dataFimInscricao = dataFimInscricao;
 	}
-	public Date getDataInicioCampeonato() {
+	public String getDataInicioCampeonato() {
 		return dataInicioCampeonato;
 	}
-	public void setDataInicioCampeonato(Date dataInicioCampeonato) {
+	public void setDataInicioCampeonato(String dataInicioCampeonato) {
 		this.dataInicioCampeonato = dataInicioCampeonato;
 	}
-	public Date getDataFimCampeonato() {
+	public String getDataFimCampeonato() {
 		return dataFimCampeonato;
 	}
-	public void setDataFimCampeonato(Date dataFimCampeonato) {
+	public void setDataFimCampeonato(String dataFimCampeonato) {
 		this.dataFimCampeonato = dataFimCampeonato;
 	}
 	public double getValorTaxa() {

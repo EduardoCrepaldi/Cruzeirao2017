@@ -28,6 +28,10 @@
 				<p:menuitem value="#{msg['pages.cadastroTimeCategoria.menu']}" url="cadastroTimeCategoria.xhtml" rendered="#{request.isUserInRole('DIRETOR')}"/>
 				
 	       </p:submenu>
+	       
+	       <p:submenu label="#{msg['pages.comuns.menuLateral.editar']}" rendered="#{request.isUserInRole('ORGANIZADOR')}">
+	       		<p:menuitem value="#{msg['pages.comuns.menuLateral.categorias']}" url="editCategoria.xhtml"/>
+	       </p:submenu>
 		
 		
 			<p:submenu label="#{msg['pages.comuns.menuLateral.pesquisar']}" rendered="#{request.isUserInRole('ORGANIZADOR')}">
