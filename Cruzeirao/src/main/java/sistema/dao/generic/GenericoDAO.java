@@ -1,51 +1,92 @@
 package sistema.dao.generic;
 
-import java.io.Serializable;
+
 import java.util.List;
 import java.util.Map;
-
+import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-public abstract class DAOImpl <T, I extends Serializable>{
+
+
+/**
+ * Classe que contem a implementacao pradrao em JPA 
+ * 
+ * 
+ */
+
+public abstract class GenericoDAO<T> {
 
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	
-	//Construtor
-	public DAOImpl(){
-		emf = Persistence.createEntityManagerFactory("Cruzeirao");
+	private Class<T> classeEntidade;
+
+	public GenericoDAO() {
+		if (emf == null)
+			emf = Persistence.createEntityManagerFactory("Cruzeirao2017");
+
+		// Usar CDI!!!!
+		em = emf.createEntityManager();
 	}
-	//Salvar
-	public T save(T entity){
+
+	protected abstract Class<T> getClasseEntidade();
+
+	@PostConstruct
+	public void init() {
+		classeEntidade = getClasseEntidade();
+	}
+
+	public EntityManager getEntityManager() {
+
+		if (em == null)
+			em = emf.createEntityManager();
+
+		return em;
+	}
+
+	public void closeEntityManager() {
+
+		if (em != null)
+			em.close();
+
+		em = null;
+	}
+
+	public Query criarNativeQuery(String sql) {
+		return em.createNativeQuery(sql);
+	}
+
+	public T salvar(T entidade) {
 		T saved = null;
-		
+
 		getEntityManager().getTransaction().begin();
-		saved = getEntityManager().merge(entity);
+		saved = getEntityManager().merge(entidade);
 		getEntityManager().getTransaction().commit();
 
 		return saved;
 	}
-	//Remover
-	public void remove(T entity) {
+
+	public void remover(Object id) {
+		T entityToBeRemoved = em.getReference(classeEntidade, id);
 		getEntityManager().getTransaction().begin();
-		getEntityManager().remove(entity);
+		em.remove(entityToBeRemoved);
 		getEntityManager().getTransaction().commit();
 
 	}
 
-	//BuscarId Banco
-	public T getById(Class<T> classe, I pk) {
+	public T atualizar(T entidade) {
+		return em.merge(entidade);
+	}
 
-		try {
-			return getEntityManager().find(classe, pk);
-		} catch (NoResultException e) {
-			return null;
-		}
+	public T pesquisarPorId(int id) {
+		return em.find(classeEntidade, id);
+	}
 
+	public T pesquisarReferencia(Long id) {
+		return em.getReference(classeEntidade, id);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -54,24 +95,6 @@ public abstract class DAOImpl <T, I extends Serializable>{
 		return getEntityManager().createQuery("select o from " + classe.getSimpleName() + " o").getResultList();
 	}
 
-
-	public EntityManager getEntityManager() {
-	  
-	 if(em == null)
-	 	em = emf.createEntityManager();
-	  
-	  return em;
-	}
-	
-
-	public void closeEntityManager(){
-		
-		if(em != null)
-			em.close();
-		
-		em = null;
-	}
-	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	protected T pesquisarUm(String namedQuery, Map parametros) {
 		T resultado = null;
@@ -96,9 +119,5 @@ public abstract class DAOImpl <T, I extends Serializable>{
 			query.setParameter(parametro.getKey(), parametro.getValue());
 		}
 	}
-	
-	
-	
-	
 
 }

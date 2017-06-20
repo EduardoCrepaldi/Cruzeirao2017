@@ -1,0 +1,39 @@
+<ui:composition template="/pages/adm/organizador/InicialUser/comuns/templateMenu.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	>
+	
+	<ui:define name="title">
+		<h:outputText value="#{msg['pages.inicio.title']}" />
+	</ui:define>
+
+	<ui:define name="principal">
+		<h:form rendered="#{request.isUserInRole('ORGANIZADOR')}">
+			<h2><center>BEM VINDO ORGANIZADOR</center></h2> 
+			<p>Ao lado esquerdo você escontras todas as suas opções</p>
+		</h:form>
+		
+		<h:form rendered="#{request.isUserInRole('DIRETOR')}">
+			<h2><center>BEM VINDO DIRETOR</center></h2> 
+			<p>Ao lado esquerdo você escontras todas as suas opções</p>
+		</h:form>
+		
+		<h:form rendered="#{request.isUserInRole('TECNICO')}">
+			<h2><center>BEM VINDO TECNICO</center></h2> 
+			<p>Ao lado esquerdo você escontras todas as suas opções</p>
+		</h:form>
+		
+		<h:form rendered="#{request.isUserInRole('JOGADOR')}">
+			<h2><center>BEM VINDO TECNICO</center></h2> 
+			<p>Ao lado esquerdo você escontras todas as suas opções</p>
+		</h:form>
+	         	
+	</ui:define>
+	
+	
+
+	
+</ui:composition>

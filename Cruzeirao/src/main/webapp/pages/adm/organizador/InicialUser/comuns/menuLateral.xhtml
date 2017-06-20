@@ -1,0 +1,49 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	<h:form>
+		<p:panelMenu>
+		
+		<p:submenu label="#{msg['pages.comuns.menuLateral.inicioNome']}" >
+			<p:menuitem value="#{msg['pages.comuns.menuLateral.inicioNome']}" url="inicio.xhtml"/>
+		</p:submenu>
+		
+		    <p:submenu label="#{msg['pages.comuns.menuLateral.inicio']}" rendered="#{request.isUserInRole('JOGADOR')}" >
+			   <p:menuitem value="#{msg['pages.inicio.menu']}" url="convites.xhtml" />
+			   <p:menuitem value="#{msg['pages.inicio.placar']}" url="placar.xhtml" />
+			</p:submenu>
+		
+			<p:submenu label="#{msg['pages.comuns.menuLateral.cadastro']}" >
+				<p:menuitem value="#{msg['pages.cadastroCampeonato.menu']}" url="cadastroCampeonato.xhtml" rendered="#{request.isUserInRole('ORGANIZADOR')}"/>
+				<p:menuitem value="#{msg['pages.cadastroCategoria.menu']}" url="cadastroCategoria.xhtml" rendered="#{request.isUserInRole('ORGANIZADOR')}"/>
+				<p:menuitem value="#{msg['pages.cadastroLocal.menu']}" url="cadastroLocal.xhtml" rendered="#{request.isUserInRole('ORGANIZADOR')}"/>
+				<p:menuitem value="#{msg['pages.cadastroJuiz.menu']}" url="cadastroJuiz.xhtml" rendered="#{request.isUserInRole('ORGANIZADOR')}"/>
+				<p:menuitem value="#{msg['pages.cadastroTime.menu']}" url="cadastroTime.xhtml" rendered="#{request.isUserInRole('DIRETOR')}"/>
+	      	 </p:submenu>
+					
+			<p:submenu label="#{msg['pages.comuns.menuLateral.inscrever']}">
+				<p:menuitem value="#{msg['pages.cadastroCategoriaCampeonato.menu']}" url="cadastroCategoriaCampeonato.xhtml" rendered="#{request.isUserInRole('ORGANIZADOR')}"/>
+				<p:menuitem value="#{msg['pages.cadastroTimeCategoria.menu']}" url="cadastroTimeCategoria.xhtml" rendered="#{request.isUserInRole('DIRETOR')}"/>
+				
+	       </p:submenu>
+		
+		
+			<p:submenu label="#{msg['pages.comuns.menuLateral.pesquisar']}" rendered="#{request.isUserInRole('ORGANIZADOR')}">
+					<p:menuitem value="#{msg['pages.pesquisarTime.menu']}" url="pesquisarTime.xhtml"  />
+					
+					
+		       </p:submenu>	
+		
+		
+			<p:submenu label="#{msg['pages.comuns.menuLateral.options']}" >
+				   <p:menuitem value="#{msg['pages.linguagem.menu']}" url="linguagem.xhtml" />
+				   <p:menuitem value="#{msg['pages.logout.menu']}" url="/logout" />
+			</p:submenu>
+		
+			
+		</p:panelMenu>
+	</h:form>
+</ui:composition>
+

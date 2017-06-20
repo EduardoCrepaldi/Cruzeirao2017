@@ -1,0 +1,81 @@
+<ui:composition template="comuns/templateInicial.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="title">
+		<h:outputText value="#{msg['pages.login.title']}" />
+	</ui:define>
+
+	<ui:define name="principal">
+			<div class="principal" align="center">
+				<div class="container">
+					<f:view transient="true">
+						<h:form id="formUsuario" enctype="multipart/form-data">
+							<h:panelGrid columns="2" columnClasses="label,value" style="margin:50px;">
+								<h:outputText value="#{msg['pages.inicial.email']}"/>
+								<p:inputText type="text" placeholder="#{msg['pages.inicial.emailUsuario']}" size="30"
+											maxlength="80" value="#{usuarioMB.usuario.email}"/>
+											
+								
+								<h:outputText value="#{msg['pages.inicial.nome']}"/>
+								<p:inputText type="text" placeholder="#{msg['pages.inicial.nomeUsuario']}" size="30"
+											maxlength="80" value="#{usuarioMB.usuario.username}"/>
+											
+								<h:outputText value="#{msg['pages.inicial.dataNascimento']}"/>
+								<p:inputMask id="date" value="#{usuarioMB.usuario.dataNascimento}"
+									placeholder="Date birth" mask="99/99/9999" />
+								
+								
+								<h:outputText value="#{msg['pages.inicial.telefoneFixo']}" />
+								<p:inputText type="text" placeholder="#{msg['pages.inicial.telefoneFixoX']}"
+									value="#{usuarioMB.usuario.telefoneFixo}" />
+	
+								<h:outputText value="#{msg['pages.inicial.telefoneMovel']}" />
+								<p:inputText type="text" placeholder="#{msg['pages.inicial.telefoneMovelX']}"
+									value="#{usuarioMB.usuario.telefoneMovel}" />
+								
+								<h:outputText value="#{msg['pages.inicial.endereco']}" />
+								<p:inputText type="text" placeholder="#{msg['pages.inicial.endereco']}"
+									value="#{usuarioMB.usuario.endereco}" />
+								
+								<h:outputText value="#{msg['pages.inicial.RG']}" />
+								<p:inputText type="text" placeholder="#{msg['pages.inicial.RGX']}"
+									value="#{usuarioMB.usuario.rg}" />
+								
+								<h:outputText value="#{msg['pages.inicial.CPF']}" />
+								<p:inputText type="text" placeholder="#{msg['pages.inicial.CPFX']}"
+									value="#{usuarioMB.usuario.cpf}" />
+									
+								<h:outputText value="#{msg['pages.inicial.Sexo']}" />
+								<p:selectOneMenu id="sexo" value="#{usuarioMB.usuario.sexo}" >
+								
+									<f:selectItems value="#{usuarioMB.usuario.sexos}"/>
+								</p:selectOneMenu>
+	
+								<h:outputText value="#{msg['pages.inicial.Tipo']}" />
+								<p:selectOneMenu id="tipo" value="#{usuarioMB.usuario.role}">
+									<f:selectItems value="#{usuarioMB.usuario.roles}"/>
+								</p:selectOneMenu>
+	
+								<h:outputLabel value="#{msg['pages.inicial.senha']}" />
+				        		<p:password placeholder="#{msg['pages.inicial.senhaX']}" id="inlineFeedback"
+				        		value="#{usuarioMB.usuario.password}" feedback="true" inline="true" />
+								
+								
+								</h:panelGrid>
+								<br/>
+								<p:commandButton actionListener="#{usuarioMB.salvar}" ajax="false" style="width: 50%; max-width: 200px;" value="Salvar"/>
+									
+								
+								
+								<p:spacer/>
+							</h:form>
+					</f:view>
+				</div>
+			</div>
+		</ui:define>
+
+</ui:composition>

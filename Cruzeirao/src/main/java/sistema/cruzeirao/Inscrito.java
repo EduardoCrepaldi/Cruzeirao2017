@@ -11,7 +11,7 @@ import javax.persistence.OneToOne;
 
 import org.eclipse.persistence.internal.libraries.asm.commons.SerialVersionUIDAdder;
 
-import enums.TipoUsuario;
+import enums.Roles;
 
 @Entity
 public class Inscrito implements Serializable{
@@ -24,7 +24,7 @@ public class Inscrito implements Serializable{
 	private int idInscrito;
 	
 	
-	private TipoUsuario tipo;
+	private Roles tipo;
 	
 	@ManyToOne
 	private Usuario usuario;
@@ -36,10 +36,10 @@ public class Inscrito implements Serializable{
 	private boolean suspensoJogos;
 	private boolean inscricaoValidada;
 	
-	public TipoUsuario getTipo() {
+	public Roles getTipo() {
 		return tipo;
 	}
-	public void setTipo(TipoUsuario tipo) {
+	public void setTipo(Roles tipo) {
 		this.tipo = tipo;
 	}
 	public Usuario getUsuario() {

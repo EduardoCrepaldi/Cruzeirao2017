@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" lang="#{localeBean.language}">
+
+<link rel="stylesheet" type="text/css"
+	href="/Cruzeirao/src/main/webapp/resources/sistema/css/estilo.css" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<h:outputStylesheet name="grid/grid.css" library="primefaces" />
+<f:view locale="#{localeBean.locale}">
+
+	<h:head>
+		<meta charset="UTF-8" />
+
+		<title><ui:insert name="title">
+				<h:outputLabel value="Cruzeirao2017 - Pagina Principal" />
+			</ui:insert></title>
+			
+
+	</h:head>
+	<h:body>
+		<p:layout id="globalLayout" fullPage="true">
+			<div class="background">
+				<p:layoutUnit position="north">
+					<ui:include src="cabecalhoUser.xhtml"  />
+				</p:layoutUnit>
+
+				<p:layoutUnit position="center" resizable="true">
+					<ui:insert name="principal" />
+				</p:layoutUnit>
+
+				<p:layoutUnit position="south">
+					<ui:include src="rodape.xhtml" />
+				</p:layoutUnit>
+			</div>
+		</p:layout>
+	</h:body>
+</f:view>
+</h:html>

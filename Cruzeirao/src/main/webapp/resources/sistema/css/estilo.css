@@ -1,0 +1,352 @@
+@CHARSET "ISO-8859-1";
+
+div.background {
+	background: #ADD8E6;
+	background-image: -webkit-radial-gradient(top, circle cover, #D3D3D3, #ADD8E6 80%);
+	background-image: -moz-radial-gradient(top, circle cover, #D3D3D3, #ADD8E6 80%);
+	background-image: -o-radial-gradient(top, circle cover, #D3D3D3, #ADD8E6 80%);
+	background-image: radial-gradient(top, circle cover, #D3D3D3, #ADD8E6 80%);
+	height: 100%;
+}
+
+.ui-layout-north {
+	z-index: 30 !important;
+	overflow: visible !important;
+}
+
+.ui-layout-north .ui-layout-unit-content {
+	overflow: visible !important;
+}
+
+input.btnLogin {
+	background:
+		url('https://dh3vbjnk0bnfa.cloudfront.net/static/centralauth/images/btn-login.png')
+		no-repeat 5px 5px #484B4F;
+	width: 130px;
+	cursor: pointer;
+	border-radius: 90px;
+	padding: 5px 5px 5px 0;
+	color: White;
+	font-size: 14px;
+	text-align: left;
+	text-indent: 40px;
+	display: block;
+	/* Animations: */
+	-webkit-transition-timing-function: ease-in-out;
+	-webkit-transition-duration: .4s;
+	-webkit-transition-property: all;
+	-moz-transition-timing-function: ease-in-out;
+	-moz-transition-duration: .4s;
+	-moz-transition-property: all;
+}
+
+input.btnLogin:hover {
+	background-image:
+		url('https://dh3vbjnk0bnfa.cloudfront.net/static/centralauth/images/btn-login-hover.png');
+	background-position: 85px 5px;
+	text-indent: 20px;
+}
+
+ul.bar {
+	list-style-type: none;
+	margin: 0;
+	padding-left: 10%;
+	padding-right: 10%;
+	width: 80%;
+	background-color: #333;
+	position: fixed;
+	top: 0;
+	z-index: 25;
+	overflow: visible;
+}
+
+li.bar {
+	float: right;
+	position: relative;
+	display: inline-block;
+}
+
+li.bar a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+li.bar a:hover {
+	background-color: #111;
+}
+
+.barIndex {
+	float: right;
+	position: relative;
+	display: inline-block;
+}
+
+.barIndex a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+.barIndex a:hover {
+	background-color: #111;
+}
+
+.dropbtn {
+	background-color: #333;
+	color: white;
+	padding: 16px;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+	float: left;
+	position: relative;
+	display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+	display: none;
+	position: absolute;
+	min-width: 300px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	background-color: #333;
+	z-index: 26;
+	overflow: visible;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+	background-color: white;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+.customHeader th {
+	background-color: #333;
+}
+
+#container {
+	position: relative;
+	margin: auto;
+}
+
+div.principal {
+	padding-left: 10%;
+	padding-right: 10%;
+	margin-top: 20px;
+}
+
+#login-box {
+	width: 333px;
+	height: 352px;
+	padding: 58px 76px 0 76px;
+	color: #ebebeb;
+	font: 12px Arial, Helvetica, sans-serif;
+	background: url(../images/login-box-backg.png) no-repeat left top;
+}
+
+#login-box img {
+	border: none;
+}
+
+#login-box h2 {
+	padding: 0;
+	margin: 0;
+	color: #ebebeb;
+	font: bold 44px "Calibri", Arial;
+}
+
+#login-box-name {
+	float: left;
+	display: inline;
+	width: 80px;
+	text-align: right;
+	padding: 14px 10px 0 0;
+	margin: 0 0 7px 0;
+}
+
+#login-box-field {
+	float: left;
+	display: inline;
+	width: 230px;
+	margin: 0;
+	margin: 0 0 7px 0;
+}
+
+.form-login {
+	width: 205px;
+	padding: 10px 4px 6px 3px;
+	border: 1px solid #0d2c52;
+	background-color: #1e4f8a;
+	font-size: 16px;
+	color: #ebebeb;
+}
+
+.login-box-options {
+	clear: both;
+	font-size: 11px;
+}
+
+.login-box-options a {
+	color: #ebebeb;
+	font-size: 11px;
+}
+
+.tree ul {
+	padding-top: 20px;
+	position: relative;
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+}
+
+.tree li {
+	float: left;
+	text-align: center;
+	list-style-type: none;
+	position: relative;
+	padding: 20px 5px 0 5px;
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+}
+
+/*We will use ::before and ::after to draw the connectors*/
+.tree li::before, .tree li::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 50%;
+	border-top: 1px solid #ccc;
+	width: 50%;
+	height: 20px;
+}
+
+.tree li::after {
+	right: auto;
+	left: 50%;
+	border-left: 1px solid #ccc;
+}
+
+/*We need to remove left-right connectors from elements without 
+any siblings*/
+.tree li:only-child::after, .tree li:only-child::before {
+	display: none;
+}
+
+/*Remove space from the top of single children*/
+.tree li:only-child {
+	padding-top: 0;
+}
+
+/*Remove left connector from first child and 
+right connector from last child*/
+.tree li:first-child::before, .tree li:last-child::after {
+	border: 0 none;
+}
+/*Adding back the vertical connector to the last nodes*/
+.tree li:last-child::before {
+	border-right: 1px solid #ccc;
+	border-radius: 0 5px 0 0;
+	-webkit-border-radius: 0 5px 0 0;
+	-moz-border-radius: 0 5px 0 0;
+}
+
+.tree li:first-child::after {
+	border-radius: 5px 0 0 0;
+	-webkit-border-radius: 5px 0 0 0;
+	-moz-border-radius: 5px 0 0 0;
+}
+
+/*Time to add downward connectors from parents*/
+.tree ul ul::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 50%;
+	border-left: 1px solid #ccc;
+	width: 0;
+	height: 20px;
+}
+
+.tree li a {
+	border: 1px solid #ccc;
+	padding: 5px 10px;
+	text-decoration: none;
+	color: #666;
+	font-family: arial, verdana, tahoma;
+	font-size: 11px;
+	display: inline-block;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+}
+
+/*Time for some hover effects*/
+/*We will apply the hover effect the the lineage of the element also*/
+.tree li a:hover, .tree li a:hover+ul li a {
+	background: #c8e4f8;
+	color: #000;
+	border: 1px solid #94a0b4;
+}
+
+/*Connector styles on hover*/
+.tree li a:hover+ul li::after, .tree li a:hover+ul li::before, .tree li a:hover+ul::before,
+	.tree li a:hover+ul ul::before {
+	border-color: #94a0b4;
+}
+
+.round {
+	margin: 10px;
+	border-radius: 50%;
+	overflow: hidden;
+	width: 200px;
+	height: 200px;
+	float: left;
+	box-shadow: 3px 3px 5px #555;
+	/* sombra deslocada em 3px para baixo e 3px para direita, borrada em 5px e com cor cinza */
+}
+
+.round div {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background-size: cover;
+	/*ajusta a imagem dentro do div, mantendo a proporção da imagem */
+	background-position: center center
+}
+
+.profile-content {
+	padding: 10px 20px;
+	text-align: center;
+	float: right;
+}
+
+.profile-content h1 {
+	font-weight: normal;
+	margin-bottom: 0.2em;
+}
+
+.profile-content p {
+	font-size: 1.0em;
+	line-height: 0.8;
+	color: #ad9f9f;
+}
