@@ -1,0 +1,74 @@
+<ui:composition template="InicialUser/comuns/templateMenu.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui2="http://java.sun.com/jsf/facelets"
+>
+	
+	<ui:define name="title">
+		<h:outputText value="#{msg['pages.cadastroLocal.title']}" />
+	</ui:define>
+	
+
+	<ui:define name="principal">
+	  
+	<h3>
+				<p:outputLabel value="Places Table" />
+				</h3>
+				<h:form id="formTabelaLocal">
+					<p:dataTable value="#{localMB.locais}" var="aux"
+						id="tabelaLocal" editable="true">
+
+						<p:ajax event="rowEdit"
+							listener="#{localMB.onRowEdit}"
+							update="tabelaLocal" />
+						
+						<p:column headerText="#{msg['pages.cadastroLocal.IdLocal']}" filterBy="#{aux.idLocal}">
+								<p:cellEditor>
+									<f:facet name="output">
+										<p:outputLabel value="#{aux.idLocal}" />
+									</f:facet>
+									<f:facet name="input">
+										<p:inputText id="LocalidLocal" value="#{aux.idLocal}"
+											style="width:100%" />
+									</f:facet>
+								</p:cellEditor>
+							</p:column>
+						<p:column headerText="#{msg['pages.cadastroLocal.Nome']}" filterBy="#{aux.nome}">
+							<p:cellEditor>
+								<f:facet name="output">
+									<p:outputLabel value="#{aux.nome}" />
+								</f:facet>
+								<f:facet name="input">
+									<p:inputText id="LocalNome" value="#{aux.nome}"
+										style="width:100%" />
+								</f:facet>
+							</p:cellEditor>
+						</p:column>
+						<p:column headerText="#{msg['pages.cadastroLocal.Endereco']}" filterBy="#{aux.endereco}">
+								<p:cellEditor>
+									<f:facet name="output">
+										<p:outputLabel value="#{aux.endereco}" />
+									</f:facet>
+									<f:facet name="input">
+										<p:inputText id="LocalEndereco" value="#{aux.endereco}"
+											style="width:100%" />
+									</f:facet>
+								</p:cellEditor>
+							</p:column>
+
+
+						<p:column style="width:70px" headerText="#{msg['pages.cadastroLocal.Opcoes']}">
+							<p:rowEditor />
+							<p:commandLink id="remover" styleClass="ui-icon ui-icon-trash"
+								style="text-align:center"
+								actionListener="#{localMB.remover(aux)}"
+								update="tabelaLocal" />
+						</p:column>
+					</p:dataTable>
+				</h:form>
+	   
+	</ui:define>
+</ui:composition>

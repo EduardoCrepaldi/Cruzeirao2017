@@ -23,13 +23,13 @@ public class Equipe implements Serializable{
 	private int idEquipe;
 	
 	private String nome;
-	@Temporal(TemporalType.DATE)
-	private Date dataFundacao;
+	
+	private String dataFundacao;
 	
 	private String cidade;
 	
-	@ManyToMany
-	private ArrayList<Usuario> diretores = new ArrayList<Usuario>();
+	
+	private Usuario diretor = new Usuario();
 	
 	
 	public String getNome() {
@@ -38,10 +38,10 @@ public class Equipe implements Serializable{
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Date getDataFundacao() {
+	public String getDataFundacao() {
 		return dataFundacao;
 	}
-	public void setDataFundacao(Date dataFundacao) {
+	public void setDataFundacao(String dataFundacao) {
 		this.dataFundacao = dataFundacao;
 	}
 	public String getCidade() {
@@ -50,11 +50,11 @@ public class Equipe implements Serializable{
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
 	}
-	public ArrayList<Usuario> getDiretores() {
-		return diretores;
+	public Usuario getDiretor() {
+		return diretor;
 	}
-	public void setDiretores(ArrayList<Usuario> diretores) {
-		this.diretores = diretores;
+	public void setDiretor(Usuario diretor) {
+		this.diretor = diretor;
 	}
 	public int getIdEquipe() {
 		return idEquipe;

@@ -32,7 +32,7 @@ public class Usuario implements Serializable{
 	private String password;
 	private String dataNascimento;
 	
-	@ManyToMany(mappedBy = "diretores")
+	
 	private ArrayList<Equipe> equipes = new ArrayList<Equipe>();
 	
 	@OneToMany(mappedBy="usuario")

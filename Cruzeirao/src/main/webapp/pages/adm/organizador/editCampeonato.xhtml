@@ -1,0 +1,124 @@
+<ui:composition template="InicialUser/comuns/templateMenu.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui2="http://java.sun.com/jsf/facelets"
+>
+	
+	<ui:define name="title">
+		<h:outputText value="#{msg['pages.cadastroCategoria.title']}" />
+	</ui:define>
+	
+
+	<ui:define name="principal">
+	  
+	<h3>
+					<p:outputLabel value="#{msg['pages.tabelaCampeonato.title']}" />
+				</h3>
+				<h:form id="formTabelaCampeonato">
+					<p:dataTable value="#{campeonatoMB.campeonatos}"
+						var="aux" id="tabelaCampeonato" editable="true">
+						<p:ajax event="rowEdit"
+							listener="#{campeonatoMB.onRowEdit}"
+							update="tabelaCampeonato" />
+						<p:column headerText="#{msg['pages.tabelaCampeonato.nome']}" filterBy="#{aux.nome}">
+							<p:cellEditor>
+								<f:facet name="output">
+									<p:outputLabel value="#{aux.nome}" />
+								</f:facet>
+								<f:facet name="input">
+									<p:inputText id="campNome" value="#{aux.nome}"
+										style="width:100%" />
+								</f:facet>
+							</p:cellEditor>
+						</p:column>
+						<p:column headerText="#{msg['pages.tabelaCampeonato.inicioInscricao']}"
+							filterBy="#{aux.dataInicioInscricao}">
+							<p:cellEditor>
+								<f:facet name="output">
+									<p:outputLabel value="#{aux.dataInicioInscricao}" />
+								</f:facet>
+								<f:facet name="input">
+									<p:inputMask mask="99/99/9999" id="campdataInicioInscricao"
+										value="#{aux.dataInicioInscricao}" style="width:100%">
+										<f:convertDateTime pattern="dd/MM/yyyy" />
+									</p:inputMask>
+								</f:facet>
+							</p:cellEditor>
+						</p:column>
+						<p:column headerText="#{msg['pages.tabelaCampeonato.fimInscricao']}"
+							filterBy="#{aux.dataFimInscricao}">
+							<p:cellEditor>
+								<f:facet name="output">
+									<p:outputLabel value="#{aux.dataFimInscricao}" />
+								</f:facet>
+								<f:facet name="input">
+									<p:inputMask mask="99/99/9999" id="campdataFimFimInscricao"
+										value="#{aux.dataFimInscricao}" style="width:100%">
+										<f:convertDateTime pattern="dd/MM/yyyy" />
+									</p:inputMask>
+								</f:facet>
+							</p:cellEditor>
+						</p:column>
+						<p:column headerText="#{msg['pages.tabelaCampeonato.inicioCampeonato']}"
+							filterBy="#{aux.dataInicioCampeonato}">
+							<p:cellEditor>
+								<f:facet name="output">
+									<p:outputLabel value="#{aux.dataInicioCampeonato}" />
+								</f:facet>
+								<f:facet name="input">
+									<p:inputMask mask="99/99/9999" id="campdataInicioCampeonato"
+										value="#{aux.dataInicioCampeonato}" style="width:100%">
+										<f:convertDateTime pattern="dd/MM/yyyy" />
+									</p:inputMask>
+								</f:facet>
+							</p:cellEditor>
+						</p:column>
+						<p:column headerText="#{msg['pages.tabelaCampeonato.fimCampeonato']}"
+							filterBy="#{aux.dataFimCampeonato}">
+							<p:cellEditor>
+								<f:facet name="output">
+									<p:outputLabel value="#{aux.dataFimCampeonato}" />
+								</f:facet>
+								<f:facet name="input">
+									<p:inputMask mask="99/99/9999" id="campFimdataFimCampeonato"
+										value="#{aux.dataFimCampeonato}" style="width:100%">
+										<f:convertDateTime pattern="dd/MM/yyyy" />
+									</p:inputMask>
+								</f:facet>
+							</p:cellEditor>
+						</p:column>
+						<p:column headerText="#{msg['pages.tabelaCampeonato.valorTaxa']}" filterBy="#{aux.valorTaxa}">
+							<p:cellEditor>
+								<f:facet name="output">
+									<p:outputLabel value="#{aux.valorTaxa}" />
+								</f:facet>
+								<f:facet name="input">
+									<p:inputNumber id="campValor" value="#{aux.valorTaxa}"
+										style="width:100%" />
+								</f:facet>
+							</p:cellEditor>
+						</p:column>
+
+						<p:column headerText="#{msg['pages.tabelaCampeonato.categorias']}" filterBy="#{aux.categorias}">
+							<p:outputLabel value="#{aux.categorias}" />
+						</p:column>
+
+						<p:column headerText="#{msg['pages.tabelaCampeonato.Locais']}" filterBy="#{aux.locais}">
+							<p:outputLabel value="#{aux.locais}" />
+						</p:column>
+
+						<p:column style="width:70px" headerText="#{msg['pages.tabelaCampeonato.Opcao']}">
+							<p:rowEditor />
+							<p:commandLink id="delete" styleClass="ui-icon ui-icon-trash"
+								style="text-align:center"
+								actionListener="#{campeonatoMB.delete(aux)}"
+								update="tabelaCampeonato" />
+						</p:column>
+					</p:dataTable>
+				</h:form>
+	   
+	</ui:define>
+</ui:composition>

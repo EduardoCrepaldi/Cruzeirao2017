@@ -50,4 +50,8 @@ public class UsuarioService {
 		userDAO.remover(usuario);
 		userDAO.closeEntityManager();
 	}
+	
+	public Usuario retornaUsuario(String nome){
+		return userDAO.pesquisarPorUserName(nome);
+	}
 }

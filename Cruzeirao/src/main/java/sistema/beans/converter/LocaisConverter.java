@@ -3,12 +3,15 @@ package sistema.beans.converter;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
+import javax.faces.convert.FacesConverter;
 
-
+import sistema.cruzeirao.Categoria;
 import sistema.cruzeirao.Local;
 
 import sistema.service.LocalService;
 
+
+@FacesConverter(forClass=Local.class, value="localConverter")
 public class LocaisConverter implements Converter{
 
 	private LocalService servico = new LocalService();

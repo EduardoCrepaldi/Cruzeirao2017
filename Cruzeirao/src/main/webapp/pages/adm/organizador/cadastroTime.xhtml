@@ -18,35 +18,34 @@
 	  	<h1><p:outputLabel value="#{msg['pages.cadastroTime.menu']}"/></h1>
 	  </center>
 	  <center>
-	  <h:form id="formTime">	
+	  <h:form id="formLocal">	
 	  <p:panelGrid columns="2">
+	  
+	  
       <p:outputLabel value="#{msg['pages.cadastroTime.nome']}" />
-      <p:inputText value="nome time"/>
+      <p:inputText value="#{equipeManagedBean.equipe.nome}"/>
       
-      <p:outputLabel value="#{msg['pages.cadastroTime.cpfDiretor']}" />
-      <p:inputText />
+      <p:outputLabel value="#{msg['pages.cadastroTime.dataFundacao']}" />     
+      <p:inputMask id="date" value="#{equipeManagedBean.equipe.dataFundacao}" mask="99/99/9999"/>
       
-      <p:outputLabel value="#{msg['pages.cadastroTime.nomeDiretor']}" />
-      <p:inputText />
-    
-     	
-
+      <p:outputLabel value="#{msg['pages.cadastroTime.cidade']}" />     
+      <p:inputText value="#{equipeManagedBean.equipe.cidade}"/>
+      
+      <p:outputLabel value="#{msg['pages.cadastroTime.diretor']}" />     
+      <p:outputLabel value="#{usuarioManagedBean.usuarioAtivo.username}"/>
+      
 	   </p:panelGrid>
 	   
-       </h:form>
-
-       <p:commandButton value="#{msg['pages.cadastroTime.btnSalvar']}" 
-	                 icon="ui-icon-check" oncomplete="PF('dlg').show()"
-					style="margin-top:10px;"
+	   <p:commandButton value="#{msg['pages.cadastroTime.btnSalvar']}" 
+	        		action="#{equipeManagedBean.salvar(usuarioManagedBean.usuarioAtivo.username)}"
+					update=":formLocal"
 	                 />
+       </h:form>
+       
+      
+      
 	</center>
 	
 	   
 	</ui:define>
 </ui:composition>
-
-
-
-
-
-

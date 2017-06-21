@@ -104,6 +104,9 @@ public class Campeonato implements Serializable{
 	public void setIdCampeonato(int idCampeonato) {
 		this.idCampeonato = idCampeonato;
 	}
+	public void setCategorias(List<Categoria> categorias) {
+		this.categorias = categorias;
+	}
 
 	
 	

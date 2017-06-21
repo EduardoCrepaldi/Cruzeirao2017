@@ -30,6 +30,15 @@
 			<h2><center>BEM VINDO Jogador <h4>#{usuarioManagedBean.usuarioAtivo.username}</h4></center></h2> 
 			<p>Ao lado esquerdo você escontras todas as suas opções</p>
 		</h:form>
+		<h:form rendered="#{request.isUserInRole('MASSAGISTA')}">
+			<h2><center>BEM VINDO Massagista <h4>#{usuarioManagedBean.usuarioAtivo.username}</h4></center></h2> 
+			<p>Ao lado esquerdo você escontras todas as suas opções</p>
+		</h:form>
+		<h:form rendered="#{request.isUserInRole('PREPARADOR_FISICO')}">
+			<h2><center>BEM VINDO Preparador Físico <h4>#{usuarioManagedBean.usuarioAtivo.username}</h4></center></h2> 
+			<p>Ao lado esquerdo você escontras todas as suas opções</p>
+		</h:form>
+		
 	         	
 	</ui:define>
 	

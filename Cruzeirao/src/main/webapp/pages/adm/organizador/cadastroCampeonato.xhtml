@@ -29,52 +29,45 @@
 			      
 			      
 			    <p:outputLabel value="#{msg['pages.cadastroCampeonato.periodoCampeonato']}" />
-				<h:form>
-				<h:panelGrid columns="2">
-				<p:outputLabel value="#{msg['pages.cadastroCampeonato.periodoCampeonato.inicio']}" />
-				<p:inputMask id="date1" value="#{campeonatoMB.campeonato.dataInicioCampeonato}" mask="99/99/9999" />
-				<p:outputLabel value="#{msg['pages.cadastroCampeonato.periodoCampeonato.fim']}" />
-				<p:inputMask id="date2" value="#{campeonatoMB.campeonato.dataFimCampeonato}" mask="99/99/9999"/>
-				</h:panelGrid>
+				<h:form id="periodo">
+					<h:panelGrid columns="2">
+						<p:outputLabel value="#{msg['pages.cadastroCampeonato.periodoCampeonato.inicio']}" />
+						<p:inputMask id="date1" value="#{campeonatoMB.campeonato.dataInicioCampeonato}" mask="99/99/9999" />
+						<p:outputLabel value="#{msg['pages.cadastroCampeonato.periodoCampeonato.fim']}" />
+						<p:inputMask id="date2" value="#{campeonatoMB.campeonato.dataFimCampeonato}" mask="99/99/9999"/>
+					</h:panelGrid>
 				</h:form>
 				  
 			      
 			    <p:outputLabel value="#{msg['pages.cadastroCampeonato.periodoRegistro']}" />
-			    <h:form>
-			    <h:panelGrid columns="2">
-				<p:outputLabel value="#{msg['pages.cadastroCampeonato.periodoRegistro.inicio']}" />
-				<p:inputMask id="date3" value="#{campeonatoMB.campeonato.dataInicioInscricao}" mask="99/99/9999"/>  
-				<p:outputLabel value="#{msg['pages.cadastroCampeonato.periodoRegistro.fim']}" />
-				<p:inputMask id="date4" value="#{campeonatoMB.campeonato.dataFimInscricao}" mask="99/99/9999"/>  
-			    </h:panelGrid>
+			    <h:form id="inscricao">
+				    <h:panelGrid columns="2" columnClasses="label,values">
+						<p:outputLabel value="#{msg['pages.cadastroCampeonato.periodoRegistro.inicio']}" />
+						<p:inputMask id="date3" value="#{campeonatoMB.campeonato.dataInicioInscricao}" mask="99/99/9999"/>  
+						<p:outputLabel value="#{msg['pages.cadastroCampeonato.periodoRegistro.fim']}" />
+						<p:inputMask id="date4" value="#{campeonatoMB.campeonato.dataFimInscricao}" mask="99/99/9999"/>  
+				    </h:panelGrid>
 			    </h:form>
 			      
 			
 			    <p:outputLabel value="#{msg['pages.cadastroCampeonato.taxa']}" />
 			    <p:inputNumber id="input1" value="#{campeonatoMB.campeonato.valorTaxa}"/> 
 			    
-			      -----------------adicionar categorias 
-			    <p:outputLabel value="#{msg['pages.cadastroCampeonato.qtdJogador']}" />
-			    <h:form>
-			   	<h:panelGrid columns="2">
-				<p:outputLabel value="#{msg['pages.cadastroCampeonato.qtdJogador.min']}" />
-				<p:inputNumber id="input2" value="#{inputNumberView.input3}"/> 
-				<p:outputLabel value="#{msg['pages.cadastroCampeonato.qtdJogador.max']}" />
-				<p:inputNumber id="input3" value="#{inputNumberView.input3}"/> 
-		    </h:panelGrid>
+			    
+		    </p:panelGrid>
+		    	<p:commandLink
+						update=":formCampeonato"
+						action="#{campeonatoMB.salvar}" ajax="false"
+						style="width: 50%; max-width: 200px;">
+						<p:graphicImage library="sistema" name="imagens/btnSalvar.png"
+							alt="Login" width="103" height="42" style="margin-left: 90px;" />
+					</p:commandLink>
+		    
 		    </h:form>
-		      
-		
-		    <p:outputLabel value="#{msg['pages.cadastroCampeonato.qtdTimes.min']}" />
-		    <p:inputNumber id="input4" value="#{inputNumberView.input4}"/> 
-		
-			</p:panelGrid>
-	    </h:form>
+		      <p:spacer />
 	
-	       <p:commandButton value="#{msg['pages.cadastroCampeonato.btnSalvar']}" 
-		                 icon="ui-icon-check" oncomplete="PF('dlg').show()"
-						style="margin-top:10px;"
-		                 />
+	
+	       
 	</div>
 	</center>
 	

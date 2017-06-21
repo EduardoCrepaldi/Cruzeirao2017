@@ -1,5 +1,6 @@
 package sistema.bens;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -23,6 +24,7 @@ public class CampeonatoManagedBean {
 	private CampeonatoService serviceCampeonato = new CampeonatoService();
 	private CategoriaService serviceCategoria = new CategoriaService();
 	private LocalService serviceLocal = new LocalService();
+	private ArrayList<Categoria> categoriasDesejadas = new ArrayList<Categoria>();
 
 	public void onRowEdit(RowEditEvent event) {
 
@@ -31,6 +33,7 @@ public class CampeonatoManagedBean {
 	}
 
 	public void salvar() {
+		campeonato.setCategorias(categoriasDesejadas);
 		for(Categoria categoria : campeonato.getCategorias())
 			categoria.getCampeonatos().add(campeonato);
 		for(Local local : campeonato.getLocais())
@@ -38,6 +41,7 @@ public class CampeonatoManagedBean {
 		
 		campeonato = serviceCampeonato.save(campeonato);
 		campeonato = new Campeonato();
+		categoriasDesejadas = new ArrayList<Categoria>();
 	}
 	
 	public void delete(Campeonato a) {
@@ -86,6 +90,14 @@ public class CampeonatoManagedBean {
 
 	public void setServiceLocal(LocalService serviceLocal) {
 		this.serviceLocal = serviceLocal;
+	}
+
+	public ArrayList<Categoria> getCategoriasDesejadas() {
+		return categoriasDesejadas;
+	}
+
+	public void setCategoriasDesejadas(ArrayList<Categoria> categoriasDesejadas) {
+		this.categoriasDesejadas = categoriasDesejadas;
 	}
 	
 	

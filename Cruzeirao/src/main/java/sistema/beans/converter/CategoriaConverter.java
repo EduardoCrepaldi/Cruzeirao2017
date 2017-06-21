@@ -3,10 +3,12 @@ package sistema.beans.converter;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
+import javax.faces.convert.FacesConverter;
 
 import sistema.cruzeirao.Categoria;
 import sistema.service.CategoriaService;
 
+@FacesConverter(forClass=Categoria.class, value="categoriaConverter")
 public class CategoriaConverter implements Converter{
 
 	private CategoriaService servico = new CategoriaService();

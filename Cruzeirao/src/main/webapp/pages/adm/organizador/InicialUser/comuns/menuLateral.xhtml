@@ -24,7 +24,7 @@
 	      	 </p:submenu>
 					
 			<p:submenu label="#{msg['pages.comuns.menuLateral.inscrever']}">
-				<p:menuitem value="#{msg['pages.cadastroCategoriaCampeonato.menu']}" url="cadastroCategoriaCampeonato.xhtml" rendered="#{request.isUserInRole('ORGANIZADOR')}"/>
+				
 				<p:menuitem value="#{msg['pages.cadastroTimeCategoria.menu']}" url="cadastroTimeCategoria.xhtml" rendered="#{request.isUserInRole('DIRETOR')}"/>
 				
 	       </p:submenu>
@@ -32,6 +32,8 @@
 	       <p:submenu label="#{msg['pages.comuns.menuLateral.editar']}" rendered="#{request.isUserInRole('ORGANIZADOR')}">
 	       		<p:menuitem value="#{msg['pages.comuns.menuLateral.categorias']}" url="editCategoria.xhtml"/>
 	       		<p:menuitem value="#{msg['pages.comuns.menuLateral.Juizes']}" url="editJuiz.xhtml"/>
+	       		<p:menuitem value="#{msg['pages.comuns.menuLateral.Campeonatos']}" url="editCampeonato.xhtml"/>
+	       		<p:menuitem value="#{msg['pages.comuns.menuLateral.Local']}" url="editLocal.xhtml"/>
 	       </p:submenu>
 		
 		

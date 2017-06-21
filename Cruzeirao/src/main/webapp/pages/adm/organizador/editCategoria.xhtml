@@ -15,7 +15,7 @@
 	<ui:define name="principal">
 	  
 	<h3>
-					<p:outputLabel value="Tabela de Categorias" />
+					<p:outputLabel value="Categories Table" />
 				</h3>
 				<h:form id="formTabelaCategorias">
 					<p:dataTable value="#{categoriaManagedBean.categorias}" var="aux"
@@ -25,7 +25,7 @@
 							listener="#{categoriaManagedBean.onRowEdit}"
 							update="tabelaCategoria" />
 
-						<p:column headerText="Nome" filterBy="#{aux.nome}">
+						<p:column headerText="#{msg['pages.cadastroLocal.nome']}" filterBy="#{aux.nome}">
 							<p:cellEditor>
 								<f:facet name="output">
 									<p:outputLabel value="#{aux.nome}" />
@@ -37,7 +37,7 @@
 							</p:cellEditor>
 						</p:column>
 
-						<p:column headerText="Nascidos em"
+						<p:column headerText="#{msg['pages.cadastroLocal.nascidosApartirDe']}"
 							filterBy="#{aux.nascidosApartirDe}">
 							<p:cellEditor>
 								<f:facet name="output">
@@ -51,7 +51,7 @@
 							</p:cellEditor>
 						</p:column>
 
-						<p:column headerText="Sexo" filterBy="#{aux.sexo}">
+						<p:column headerText="#{msg['pages.cadastroLocal.sexo']}" filterBy="#{aux.sexo}">
 							<p:cellEditor>
 								<f:facet name="output">
 									<p:outputLabel value="#{aux.sexo}" />
@@ -96,7 +96,7 @@
 							</p:cellEditor>
 						</p:column>
 
-						<p:column style="width:70px" headerText="Opções">
+						<p:column style="width:70px" headerText="#{msg['pages.cadastroLocal.Opcoes']}">
 							<p:rowEditor />
 							<p:commandLink id="delete" styleClass="ui-icon ui-icon-trash"
 								style="text-align:center"
