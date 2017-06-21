@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import enums.Roles;
 import sistema.cruzeirao.Usuario;
 
 import sistema.dao.UsuarioDAO;
@@ -53,5 +54,13 @@ public class UsuarioService {
 	
 	public Usuario retornaUsuario(String nome){
 		return userDAO.pesquisarPorUserName(nome);
+	}
+	
+	public List<Usuario> retornaJogadores(){
+		return userDAO.usuarioJogadores();
+	}
+	
+	public Usuario atualizandoUser(Usuario usuario){
+		return userDAO.pesquisarPorId(usuario.getId());
 	}
 }

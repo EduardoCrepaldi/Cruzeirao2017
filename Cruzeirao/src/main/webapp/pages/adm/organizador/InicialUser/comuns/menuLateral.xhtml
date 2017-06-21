@@ -23,9 +23,10 @@
 				<p:menuitem value="#{msg['pages.cadastroTime.menu']}" url="cadastroTime.xhtml" rendered="#{request.isUserInRole('DIRETOR')}"/>
 	      	 </p:submenu>
 					
-			<p:submenu label="#{msg['pages.comuns.menuLateral.inscrever']}">
+			<p:submenu label="#{msg['pages.comuns.menuLateral.inscrever']}" rendered="#{request.isUserInRole('DIRETOR')}">
 				
-				<p:menuitem value="#{msg['pages.cadastroTimeCategoria.menu']}" url="cadastroTimeCategoria.xhtml" rendered="#{request.isUserInRole('DIRETOR')}"/>
+				<p:menuitem value="#{msg['pages.cadastroTimeCategoria.menu']}" url="cadastroTimeCategoria.xhtml"/>
+				<p:menuitem value="#{msg['pages.cadastroJogadorTime.menu']}" url="cadastroJogadorTime.xhtml"/>
 				
 	       </p:submenu>
 	       

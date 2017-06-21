@@ -31,6 +31,12 @@ public class Equipe implements Serializable{
 	
 	private Usuario diretor = new Usuario();
 	
+	private ArrayList<Usuario> jogadores = new ArrayList<Usuario>();
+	
+	public void addJogadores(Usuario jogador){
+		jogadores.add(jogador);
+	}
+	
 	
 	public String getNome() {
 		return nome;
@@ -61,6 +67,12 @@ public class Equipe implements Serializable{
 	}
 	public void setIdEquipe(int idEquipe) {
 		this.idEquipe = idEquipe;
+	}
+	public ArrayList<Usuario> getJogadores() {
+		return jogadores;
+	}
+	public void setJogadores(ArrayList<Usuario> jogadores) {
+		this.jogadores = jogadores;
 	}
 	
 	

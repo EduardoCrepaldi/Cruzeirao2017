@@ -1,0 +1,45 @@
+<ui:composition template="InicialUser/comuns/templateMenu.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui2="http://java.sun.com/jsf/facelets"
+>
+	
+	<ui:define name="title">
+		<h:outputText value="#{msg['pages.cadastroTime.title']}" />
+	</ui:define>
+	
+
+	<ui:define name="principal">
+	  
+	  <center>
+	  	<h1><p:outputLabel value="#{msg['pages.cadastroJogadorTime.menu']}"/></h1>
+	  </center>
+	  <center>
+	  <h:form id="formLocal">	
+	  <p:panelGrid columns="2">
+	  
+	  
+      <p:outputLabel value="#{msg['pages.Jogadores.nome']}" />
+      
+	   <h:selectOneMenu converter="usuarioConverter" value="#{equipeManagedBean.jogadorSelecionado}">
+        <f:selectItems value="#{usuarioManagedBean.jogadores}" var="jog" itemLabel="#{jog.username}" itemValue="#{jog}"/>
+     	</h:selectOneMenu>
+      
+	   </p:panelGrid>
+	   
+	   <p:commandButton value="#{msg['pages.cadastroJogador.btnSalvar']}" 
+	        		action="#{equipeManagedBean.altera(usuarioManagedBean.usuarioAtivo.username)}"
+					update=":formLocal"
+	                 />
+       </h:form>
+       
+      
+      
+	</center>
+	
+	   
+	</ui:define>
+</ui:composition>

@@ -8,7 +8,7 @@ import javax.faces.bean.ViewScoped;
 import org.primefaces.event.RowEditEvent;
 
 import sistema.cruzeirao.Equipe;
-
+import sistema.cruzeirao.Usuario;
 import sistema.service.EquipeService;
 import sistema.service.UsuarioService;
 
@@ -20,6 +20,8 @@ public class EquipeManagedBean {
 	private List<Equipe> equipes;
 	private EquipeService service = new EquipeService();
 	private UsuarioService userDiretor = new UsuarioService();
+	private Usuario jogadorSelecionado;
+	
 	
 	public void onRowEdit(RowEditEvent event){
 		Equipe l = ((Equipe) event.getObject());
@@ -29,12 +31,42 @@ public class EquipeManagedBean {
 	public void salvar(String nome){
 		
 		equipe.setDiretor(userDiretor.retornaUsuario(nome));
+		addEquipenoDiretor(equipe);
+		
 		equipe = service.salvar(equipe);
 		
 		if(equipes != null)
 			equipes.add(equipe);
 		
 		equipe = new Equipe();
+	}
+	
+	//Salvando equipes em um diretor(usuario)
+	public void addEquipenoDiretor(Equipe e){
+		Usuario diretor = userDiretor.retornaUsuario(e.getDiretor().getUsername());
+		diretor.addEquipes(e);
+		
+	}
+	
+	public void altera(String nomeDiretor){
+		
+		
+		
+		Usuario diretorAtual = userDiretor.retornaUsuario(nomeDiretor);
+		Equipe equipeAtual = null;
+		for(Equipe u : service.getEquipes())
+			if(u.getDiretor() == diretorAtual)
+				equipeAtual = u;
+			
+				
+		
+		equipeAtual.addJogadores(jogadorSelecionado);
+		service.alterar(equipeAtual);
+		//jogadorSelecionado.addEquipes(equipe);
+		Usuario userAtual = userDiretor.atualizandoUser(jogadorSelecionado);
+		userAtual.addEquipes(equipeAtual);
+		userDiretor.alterar(userAtual);
+		
 	}
 	
 	public Equipe getEquipe(){
@@ -68,6 +100,14 @@ public class EquipeManagedBean {
 
 	public void setEquipes(List<Equipe> equipes) {
 		this.equipes = equipes;
+	}
+
+	public Usuario getJogadorSelecionado() {
+		return jogadorSelecionado;
+	}
+
+	public void setJogadorSelecionado(Usuario jogadorSelecionado) {
+		this.jogadorSelecionado = jogadorSelecionado;
 	}
 	
 	

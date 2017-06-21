@@ -11,34 +11,48 @@
 	</ui:define>
 
 	<ui:define name="principal">
-		<h:form rendered="#{request.isUserInRole('ORGANIZADOR')}">
-			<h2><center>BEM VINDO ORGANIZADOR <h4>#{usuarioManagedBean.usuarioAtivo.username}</h4></center></h2> 
-			<p>Ao lado esquerdo você escontras todas as suas opções</p>
-		</h:form>
-		
-		<h:form rendered="#{request.isUserInRole('DIRETOR')}">
-			<h2><center>BEM VINDO DIRETOR <h4>#{usuarioManagedBean.usuarioAtivo.username}</h4></center></h2> 
-			<p>Ao lado esquerdo você escontras todas as suas opções</p>
-		</h:form>
-		
-		<h:form rendered="#{request.isUserInRole('TECNICO')}">
-			<h2><center>BEM VINDO TECNICO <h4>#{usuarioManagedBean.usuarioAtivo.username}</h4></center></h2> 
-			<p>Ao lado esquerdo você escontras todas as suas opções</p>
-		</h:form>
-		
-		<h:form rendered="#{request.isUserInRole('JOGADOR')}">
-			<h2><center>BEM VINDO Jogador <h4>#{usuarioManagedBean.usuarioAtivo.username}</h4></center></h2> 
-			<p>Ao lado esquerdo você escontras todas as suas opções</p>
-		</h:form>
-		<h:form rendered="#{request.isUserInRole('MASSAGISTA')}">
-			<h2><center>BEM VINDO Massagista <h4>#{usuarioManagedBean.usuarioAtivo.username}</h4></center></h2> 
-			<p>Ao lado esquerdo você escontras todas as suas opções</p>
-		</h:form>
-		<h:form rendered="#{request.isUserInRole('PREPARADOR_FISICO')}">
-			<h2><center>BEM VINDO Preparador Físico <h4>#{usuarioManagedBean.usuarioAtivo.username}</h4></center></h2> 
-			<p>Ao lado esquerdo você escontras todas as suas opções</p>
-		</h:form>
-		
+		<center>
+			<h:form rendered="#{request.isUserInRole('ORGANIZADOR')}" >
+				<h:outputLabel value="#{msg['pages.organizador']}" style="font-size:200%"/>
+				<p style="font-size:200%">#{usuarioManagedBean.usuarioAtivo.username}</p>
+				<br/>
+				<h:outputLabel value="#{msg['pages.mensagem']}" style="font-size:100%"/>
+				
+			</h:form>
+			
+			<h:form rendered="#{request.isUserInRole('DIRETOR')}">
+				<h:outputLabel value="#{msg['pages.diretor']}" style="font-size:200%"/>
+				<p style="font-size:200%">#{usuarioManagedBean.usuarioAtivo.username}</p>
+				<br/>
+				<h:outputLabel value="#{msg['pages.mensagem']}" style="font-size:100%"/>
+			</h:form>
+			
+			<h:form rendered="#{request.isUserInRole('TECNICO')}">
+				<h:outputLabel value="#{msg['pages.tecnico']}" style="font-size:200%"/>
+				<p style="font-size:200%">#{usuarioManagedBean.usuarioAtivo.username}</p>
+				<br/>
+				<h:outputLabel value="#{msg['pages.mensagem']}" style="font-size:100%"/>
+			</h:form>
+			
+			<h:form rendered="#{request.isUserInRole('JOGADOR')}">
+				<h:outputLabel value="#{msg['pages.jogador']}" style="font-size:200%"/>
+				<p style="font-size:200%">#{usuarioManagedBean.usuarioAtivo.username}</p>
+				<br/>
+				<h:outputLabel value="#{msg['pages.mensagem']}" style="font-size:100%"/>
+			</h:form>
+			<h:form rendered="#{request.isUserInRole('MASSAGISTA')}">
+				<h:outputLabel value="#{msg['pages.massagista']}" style="font-size:200%"/>
+				<p style="font-size:200%">#{usuarioManagedBean.usuarioAtivo.username}</p>
+				<br/>
+				<h:outputLabel value="#{msg['pages.mensagem']}" style="font-size:100%"/>
+			</h:form>
+			<h:form rendered="#{request.isUserInRole('PREPARADOR_FISICO')}">
+				<h:outputLabel value="#{msg['pages.preparador']}" style="font-size:200%"/>
+				<p style="font-size:200%">#{usuarioManagedBean.usuarioAtivo.username}</p>
+				<br/>
+				<h:outputLabel value="#{msg['pages.mensagem']}" style="font-size:100%"/>
+			</h:form>
+		</center>
 	         	
 	</ui:define>
 	

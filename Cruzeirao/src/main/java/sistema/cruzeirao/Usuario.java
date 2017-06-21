@@ -5,10 +5,13 @@ import java.util.ArrayList;
 
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
@@ -16,11 +19,15 @@ import enums.Sexo;
 import enums.Roles;
 
 @Entity
-@NamedQuery(name = "Usuario.pesquisarPorUserName", query = "select u from Usuario u where u.username = :username")
+@NamedQueries({
+@NamedQuery(name = "Usuario.pesquisarPorUserName", query = "select u from Usuario u where u.username = :username"),
+@NamedQuery(name = "Usuario.pesquisarJogador", query = "select u from Usuario u where u.role = enums.Roles.JOGADOR")
+})
 public class Usuario implements Serializable{
 	
 	private static final long serialVersionUID = 6360850095345609468L;
 	public static final String PESQUISAR_POR_USERNAME = "Usuario.pesquisarPorUserName";
+	public static final String PESQUISAR_JOGADOR = "Usuario.pesquisarJogador";
 	
 	
 	@Id
@@ -41,7 +48,7 @@ public class Usuario implements Serializable{
 	@OneToMany
 	private ArrayList<Campeonato> campeonatos = new ArrayList<Campeonato>();
 	
-	
+	@Enumerated(EnumType.ORDINAL)
 	private Roles role;
 	private String  telefoneFixo;
 	private String telefoneMovel;
@@ -195,4 +202,7 @@ public class Usuario implements Serializable{
 		return Roles.values();
 	}
 	
+	public void addEquipes(Equipe e){
+		equipes.add(e);
+	}
 }

@@ -10,6 +10,8 @@ import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
+import enums.Roles;
+
 
 
 /**
@@ -93,6 +95,24 @@ public abstract class GenericoDAO<T> {
 	public List<T> getAll(Class<T> classe) {
 
 		return getEntityManager().createQuery("select o from " + classe.getSimpleName() + " o").getResultList();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<T> pesquisaJogadores(String namedQuery){
+		List<T> resultado = null;
+
+		
+		try {
+			Query query = em.createNamedQuery(namedQuery);
+			
+			resultado = query.getResultList();
+		} catch (NoResultException e) {
+			System.out.println(e);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+		return resultado;
 	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })

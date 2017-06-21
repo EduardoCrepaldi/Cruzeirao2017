@@ -88,5 +88,10 @@ public class UsuarioManagedBean {
 		}
 	}
 	
+	public List<Usuario> getJogadores(){
+		return service.retornaJogadores();
+	}
+	
+	
 	
 }

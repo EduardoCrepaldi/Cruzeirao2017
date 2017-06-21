@@ -5,6 +5,7 @@ package sistema.service;
 import java.util.List;
 
 import sistema.cruzeirao.Equipe;
+import sistema.cruzeirao.Usuario;
 import sistema.dao.EquipeDAO;
 
 
@@ -33,6 +34,10 @@ public class EquipeService {
 		equipe = equipeDAO.getById(Equipe.class, equipe.getIdEquipe());
 		equipeDAO.remover(equipe);
 		equipeDAO.closeEntityManager();
+	}
+	
+	public Equipe retornaEquipe(String id){
+		return equipeDAO.pesquisarPorId(Integer.parseInt(id));
 	}
 	
 }

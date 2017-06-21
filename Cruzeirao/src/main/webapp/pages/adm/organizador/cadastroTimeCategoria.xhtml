@@ -19,57 +19,57 @@
 	  </center>
 	  <center>
 	  <h:form id="formTimeCategoria">	
-	  <p:panelGrid columns="2">
-      <p:outputLabel value="#{msg['pages.cadastroTimeCategoria.selecione']}" />
-      <p:selectOneListbox id="basic" value="#{selectOneView.option}">
-            <f:selectItem itemLabel="Cruzeirao 2016" itemValue="1" />
-            <f:selectItem itemLabel="Cruzeirao 2017" itemValue="2" />
-            <f:selectItem itemLabel="Cruzeirao 2018" itemValue="3" />
-      </p:selectOneListbox>
-      
-      <p:outputLabel value="#{msg['pages.cadastroTimeCategoria.categoria']}" />
-        <p:selectOneMenu id="car" value="#{selectOneMenuView.car}">
-            <f:selectItem itemLabel="Select One" itemValue="" />
-            <f:selectItems value="#{selectOneMenuView.cars}" />
-        </p:selectOneMenu>
-        
-       <p:outputLabel value="#{msg['pages.cadastroTimeCategoria.nomeTime']}" /> 
-       <p:selectOneMenu id="console" value="#{selectOneMenuView.console}" style="width:125px">
-            <f:selectItem itemLabel="Select One" itemValue="" />
-            <f:selectItem itemLabel="Corinthians" itemValue="Corinthians" />
-            <f:selectItem itemLabel="São Bento" itemValue="São Bento" />
-            <f:selectItem itemLabel="Barcelona" itemValue="Barcelona" />
-        </p:selectOneMenu>
-	   
-	   
-	   </p:panelGrid>  
-	   
-	   <br/>
-	   <form>
-	   <h:panelGrid columns="2">
-	   <p:outputLabel value="#{msg['pages.cadastroTime.tecnico']}" />
-       <p:autoComplete id="acSimple1" value="#{autoCompleteView.txt1}" completeMethod="#{autoCompleteView.completeText}" />
-      
-       <p:outputLabel value="#{msg['pages.cadastroTime.auxtecnico']}" />
-       <p:autoComplete id="acSimple2" value="#{autoCompleteView.txt1}" completeMethod="#{autoCompleteView.completeText}" />
-      
-       <p:outputLabel value="#{msg['pages.cadastroTime.prepFisico']}" />
-       <p:autoComplete id="acSimple3" value="#{autoCompleteView.txt1}" completeMethod="#{autoCompleteView.completeText}" />
-       
-       <p:outputLabel value="#{msg['pages.cadastroTime.massagista']}" />
-       <p:autoComplete id="acSimple4" value="#{autoCompleteView.txt1}" completeMethod="#{autoCompleteView.completeText}" />
-       
-       
-       <p:outputLabel value="#{msg['pages.cadastroTimeCategoria.textJogadores']}" /> 
-       
-       <p:selectCheckboxMenu id="Jogadores" value="#{checkboxView.selectedCities}" label="#{msg['pages.cadastroTimeCategoria.jogText']}"
-                              filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
-            <f:selectItems value="#{checkboxView.cities}" />
-        </p:selectCheckboxMenu>
-       </h:panelGrid>
-       </form>
-       
-       </h:form>
+		  <p:panelGrid columns="2">
+	      <p:outputLabel value="#{msg['pages.cadastroTimeCategoria.selecione']}" />
+	      <p:selectOneListbox id="basic" value="#{selectOneView.option}">
+	            <f:selectItem itemLabel="Cruzeirao 2016" itemValue="1" />
+	            <f:selectItem itemLabel="Cruzeirao 2017" itemValue="2" />
+	            <f:selectItem itemLabel="Cruzeirao 2018" itemValue="3" />
+	      </p:selectOneListbox>
+	      
+	      <p:outputLabel value="#{msg['pages.cadastroTimeCategoria.categoria']}" />
+	        <p:selectOneMenu id="car" value="#{selectOneMenuView.car}">
+	            <f:selectItem itemLabel="Select One" itemValue="" />
+	            <f:selectItems value="#{selectOneMenuView.cars}" />
+	        </p:selectOneMenu>
+	        
+	       <p:outputLabel value="#{msg['pages.cadastroTimeCategoria.nomeTime']}" /> 
+	       <p:selectOneMenu id="console" value="#{selectOneMenuView.console}" style="width:125px">
+	            <f:selectItem itemLabel="Select One" itemValue="" />
+	            <f:selectItem itemLabel="Corinthians" itemValue="Corinthians" />
+	            <f:selectItem itemLabel="São Bento" itemValue="São Bento" />
+	            <f:selectItem itemLabel="Barcelona" itemValue="Barcelona" />
+	        </p:selectOneMenu>
+		   
+		   
+		   </p:panelGrid>  
+		   
+		   <br/>
+		   <form>
+		   <h:panelGrid columns="2">
+		   <p:outputLabel value="#{msg['pages.cadastroTime.tecnico']}" />
+	       <p:autoComplete id="acSimple1" value="#{autoCompleteView.txt1}" completeMethod="#{autoCompleteView.completeText}" />
+	      
+	       <p:outputLabel value="#{msg['pages.cadastroTime.auxtecnico']}" />
+	       <p:autoComplete id="acSimple2" value="#{autoCompleteView.txt1}" completeMethod="#{autoCompleteView.completeText}" />
+	      
+	       <p:outputLabel value="#{msg['pages.cadastroTime.prepFisico']}" />
+	       <p:autoComplete id="acSimple3" value="#{autoCompleteView.txt1}" completeMethod="#{autoCompleteView.completeText}" />
+	       
+	       <p:outputLabel value="#{msg['pages.cadastroTime.massagista']}" />
+	       <p:autoComplete id="acSimple4" value="#{autoCompleteView.txt1}" completeMethod="#{autoCompleteView.completeText}" />
+	       
+	       
+	       <p:outputLabel value="#{msg['pages.cadastroTimeCategoria.textJogadores']}" /> 
+	       
+	       <p:selectCheckboxMenu id="Jogadores" value="#{checkboxView.selectedCities}" label="#{msg['pages.cadastroTimeCategoria.jogText']}"
+	                              filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
+	            <f:selectItems value="#{checkboxView.cities}" />
+	        </p:selectCheckboxMenu>
+	       </h:panelGrid>
+	       </form>
+	       
+	       </h:form>
 
        <p:commandButton value="#{msg['pages.cadastroTimeCategoria.btnSalvar']}" 
 	                 icon="ui-icon-check" oncomplete="PF('dlg').show()"
